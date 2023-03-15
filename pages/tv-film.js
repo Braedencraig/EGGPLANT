@@ -15,7 +15,6 @@ export default function Index({
   videos,
   categories,
 }) {
-  console.log(categories);
   return (
     <>
       <Layout
