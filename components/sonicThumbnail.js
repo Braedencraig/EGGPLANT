@@ -30,7 +30,7 @@ function SonicThumbnail({ url, clientName, projectTitle, copy }) {
           sizes="(max-width: 640px) 100vw, 640px"
           src={`https://vumbnail.com/${videoId}.jpg`}
           alt="Vimeo Thumbnail"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover special"
         />
         <div className="flex flex-col text-left mt-4">
           <p className="text-accent-1 text-2xl">{clientName}</p>

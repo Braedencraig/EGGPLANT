@@ -119,7 +119,7 @@ h6 {
 
 .player-wrapper {
   /* position: absolute; */
-  height: 50%;
+  height: 56%;
   width: 100%;
   max-width: 960px !important;
   display: flex;
@@ -138,12 +138,16 @@ h6 {
   max-width: 960px !important;
 }
 
+.special {
+  transform: scale(1.1);
+}
+
 @media (max-width: 960px) {
   .player-wrapper {
     position: absolute;
     top: 20%;
     padding: 0 5%;
-    height: 50vw;
+    height: 68vw;
   }
 }
 
@@ -154,8 +158,19 @@ h6 {
 }
 
 @media (max-width: 768px) {
-  .video-tab {
+  /* .video-tab {
     width: 100% !important;
+  }
+
+  .player-wrapper {
+    height: 100%;
+    width: 100%;
+  } */
+  .player-wrapper {
+    position: absolute;
+    top: 20%;
+    padding: 0 5%;
+    height: 80vw;
   }
 }
 
@@ -190,18 +205,18 @@ h6 {
   transform: rotate(180deg);
 }
 
-.player-wrapper {
+/* .player-wrapper {
   position: relative;
-  padding-top: 56.25%; /* Player ratio: 100 / (1280 / 720) */
+  padding-top: 56.25%;
 }
 
 .react-player {
   position: absolute;
   top: 0;
   left: 0;
-}
+} */
 
-@media (max-width: 1030px) {
+/* @media (max-width: 1030px) {
   .player-wrapper {
     top: -5%;
   }
@@ -209,4 +224,4 @@ h6 {
   .player-test {
     padding: 0 20px;
   }
-}
+} */

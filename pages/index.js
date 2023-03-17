@@ -1,6 +1,11 @@
 import Container from "../components/container";
 import Layout from "../components/layout";
-import { getNavigation, getHomepage } from "../lib/api";
+import {
+  getNavigation,
+  getHomepage,
+  getVideos,
+  getMoreVideos,
+} from "../lib/api";
 import About from "../components/about";
 import Awards from "../components/awards";
 import GetInTouch from "../components/getInTouch";
@@ -11,6 +16,7 @@ export default function Index({
   navigation,
   homepage,
   videos,
+  videos2,
   about,
   awards,
   getInTouch,
@@ -40,6 +46,8 @@ export default function Index({
         <Container fullBleed={true}>
           <div className="md:py-[60px] w-full flex flex-wrap">
             {videos
+              .concat(videos2)
+              .filter((video) => video.categoryCollection.items.length === 0)
               .filter((video) => video.videoUrl)
               .map((video, index) => {
                 return (
@@ -69,7 +77,7 @@ export async function getStaticProps() {
   const { nav, navItems } = (await getNavigation()) ?? [];
   const {
     homepage,
-    videos,
+    // videos,
     about,
     awards,
     getInTouch,
@@ -78,10 +86,14 @@ export async function getStaticProps() {
     cities,
     socials,
   } = (await getHomepage()) ?? [];
+  const { videos, categories } = (await getVideos()) ?? [];
+  const { videos2, categories2 } = (await getMoreVideos()) ?? [];
+
   return {
     props: {
       homepage,
       videos,
+      videos2,
       about,
       awards,
       getInTouch,

@@ -30,7 +30,7 @@ function VimeoThumbnail({ url, clientName, projectTitle }) {
           sizes="(max-width: 640px) 100vw, 640px"
           src={`https://vumbnail.com/${videoId}.jpg`}
           alt="Vimeo Thumbnail"
-          className="w-full h-full object-cover"
+          className="w-full h-full object-cover special"
         />
 
         <div
