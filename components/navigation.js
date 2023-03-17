@@ -1,8 +1,13 @@
+import { useEffect, useState } from "react";
 import Container from "./container";
 import Link from "next/link";
 import Header from "./header";
 
 export default function Navigation({ data: { nav, navItems } }) {
+  const [active, setActive] = useState(false);
+  useEffect(() => {
+    setActive(window.location.pathname.replace("/", ""));
+  }, []);
   return (
     <div className="absolute top-0 left-0 right-0">
       <Container>
@@ -21,7 +26,11 @@ export default function Navigation({ data: { nav, navItems } }) {
                 <li key={i} className="ml-7">
                   <Link
                     href={item.linkUrl}
-                    className="text-white no-underline hover:underline"
+                    className={`${
+                      active === item.linkUrl
+                        ? "text-accent-1 font-bold"
+                        : "text-white"
+                    } no-underline hover:underline`}
                   >
                     {item.linkText}
                   </Link>

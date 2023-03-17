@@ -39,7 +39,15 @@ function VimeoThumbnail({ url, clientName, projectTitle }) {
           }`}
         >
           <div className="flex flex-col text-center">
-            <p className="text-accent-1 text-2xl">{clientName}</p>
+            <p
+              style={{
+                letterSpacing: "0.2em",
+                fontFamily: `Roboto, san-serif`,
+              }}
+              className="text-accent-1 text-2xl font-bold"
+            >
+              {clientName.toUpperCase()}
+            </p>
             <p className="text-lg">{projectTitle}</p>
           </div>
         </div>

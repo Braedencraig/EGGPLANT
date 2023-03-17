@@ -32,7 +32,7 @@ export default function VideoTab({
 
   return (
     <div className="bg-black text-white py-24">
-      <Container>
+      <Container heroFull>
         <div className="block md:hidden mb-10">
           <Dropdown
             options={options}
@@ -82,7 +82,7 @@ export default function VideoTab({
                 );
               })}
           </div>
-          <div className="videos flex flex-wrap max-w-[900px]">
+          <div className="videos flex flex-wrap max-w-[1200px]">
             {selectedCategory === "All" &&
               allVideos.map((video, index) => (
                 <div

@@ -15,7 +15,6 @@ export default function Index({
   videos,
   categories,
 }) {
-  console.log(categories);
   return (
     <>
       <Layout
@@ -25,6 +24,8 @@ export default function Index({
         footer={footer}
         cities={cities}
         socials={socials}
+        tiny={true}
+        video={true}
       >
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />

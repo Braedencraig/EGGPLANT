@@ -33,6 +33,7 @@ export default function Index({
         footer={footer}
         cities={cities}
         socials={socials}
+        home={true}
       >
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -43,7 +44,7 @@ export default function Index({
           />
           <title>{`Eggplant`}</title>
         </Head>
-        <Container fullBleed={true}>
+        <Container fullBleed={true} heroFull={true}>
           <div className="md:py-[60px] w-full flex flex-wrap">
             {videos
               .concat(videos2)
