@@ -27,7 +27,7 @@ export default function Layout({
             autoPlay
             loop
             muted
-            style={{ filter: "opacity(0.5)", filter: "brightness(0.5)" }}
+            style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
           />
           <Navigation data={navigation} />
           <div

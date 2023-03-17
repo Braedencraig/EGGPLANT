@@ -43,37 +43,40 @@ function VimeoThumbnail({ url, clientName, projectTitle }) {
               style={{
                 letterSpacing: "0.2em",
                 fontFamily: `Roboto, san-serif`,
+                padding: "0 20px",
               }}
-              className="text-accent-1 text-2xl font-bold"
+              className="text-accent-1 text-xl font-bold mb-2"
             >
               {clientName.toUpperCase()}
             </p>
-            <p className="text-lg">{projectTitle}</p>
+            <p className="text-md">{projectTitle}</p>
           </div>
         </div>
       </div>
       {showModal && (
-        <div className="fixed inset-0 z-10 bg-black flex items-center justify-center">
-          <div className="player-wrapper">
-            <button
-              className="cursor-pointer z-[2000] mb-6"
-              onClick={() => setShowModal(false)}
-            >
-              <img src={close.src} alt="Close" />
-            </button>
-            <ReactPlayer
-              controls={true}
-              url={url}
-              // className="react-player"
-              playing
-              width="100%"
-              height="100%"
-            />
-            <div className="flex flex-col text-left mt-6">
-              <p className="text-accent-1 text-xl">
-                {clientName.toUpperCase()} / {projectTitle.toUpperCase()}
-              </p>
-              <p className="text-white text-lg">CATEGORY</p>
+        <div className="bg-black fixed z-10 inset-0 top-0 left-0 right-0 bottom-0">
+          <div className="fixed inset-0 z-10 bg-black flex items-center justify-center">
+            <div className="player-wrapper">
+              <button
+                className="cursor-pointer z-[10000] mb-6 relative"
+                onClick={() => setShowModal(false)}
+              >
+                <img src={close.src} alt="Close" />
+              </button>
+              <ReactPlayer
+                controls={true}
+                url={url}
+                playing
+                className="react-player"
+                width="100%"
+                height="100%"
+              />
+              <div className="flex flex-col text-left mt-6 text-fun">
+                <p className="text-accent-1 text-xl">
+                  {clientName.toUpperCase()} / {projectTitle.toUpperCase()}
+                </p>
+                <p className="text-white text-lg">CATEGORY</p>
+              </div>
             </div>
           </div>
         </div>
