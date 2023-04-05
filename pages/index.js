@@ -104,7 +104,7 @@ export async function getStaticProps() {
       socials,
       navigation: {
         nav,
-        navItems,
+        navItems: navItems.reverse(),
       },
     },
   };

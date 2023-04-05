@@ -38,7 +38,7 @@ const MobileNav = ({ open, navItems }) => {
             {navItems.map((item) => (
               <Link
                 href={item.linkUrl}
-                className="list-item"
+                className="list-item hover:text-accent-1"
                 key={item.linkUrl}
               >
                 {item.linkText}

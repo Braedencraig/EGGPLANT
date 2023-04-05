@@ -8,8 +8,6 @@ function VimeoThumbnail({ url, clientName, projectTitle }) {
 
   const videoId = url.split("/").pop();
 
-  console.log("asdas");
-
   const handleClick = () => {
     setShowModal(true);
   };

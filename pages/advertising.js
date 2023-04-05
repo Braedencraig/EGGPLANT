@@ -77,7 +77,7 @@ export async function getStaticProps() {
       categories,
       navigation: {
         nav,
-        navItems,
+        navItems: navItems.reverse(),
       },
     },
   };

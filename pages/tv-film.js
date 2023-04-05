@@ -37,11 +37,12 @@ export default function Index({
           {/* SEO TO DO!!! */}
         </Head>
         <VideoTab
+          reverse={true}
           allowedCategories={[
-            "TV",
-            "Score",
-            "Film",
-            "Theme",
+            // "TV",
+            // "Score",
+            // "Film",
+            // "Theme",
             "Original Song",
             "Music Supervision",
           ]}
@@ -49,10 +50,10 @@ export default function Index({
           categories={categories}
           options={[
             { value: "All", label: "ALL" },
-            { value: "3FdihYJgo7P7u7fEu9MMve", label: "TV" },
-            { value: "W3sFwJgAwP3bEYV4ykIo8", label: "SCORE" },
-            { value: "1KtDtZFWbsxirzmJzBdcE7", label: "FILM" },
-            { value: "3QJNZPGszWfII2iBeSE7Ny", label: "THEME" },
+            // { value: "3FdihYJgo7P7u7fEu9MMve", label: "TV" },
+            // { value: "W3sFwJgAwP3bEYV4ykIo8", label: "SCORE" },
+            // { value: "1KtDtZFWbsxirzmJzBdcE7", label: "FILM" },
+            // { value: "3QJNZPGszWfII2iBeSE7Ny", label: "THEME" },
             { value: "29RbpcnlGepxn0l3Bg2qVn", label: "ORIGINAL SONG" },
             { value: "16elG76rIZjcF1glbJfiWH", label: "MUSIC SUPERVISION" },
           ]}
@@ -81,7 +82,7 @@ export async function getStaticProps() {
       categories,
       navigation: {
         nav,
-        navItems,
+        navItems: navItems.reverse(),
       },
     },
   };

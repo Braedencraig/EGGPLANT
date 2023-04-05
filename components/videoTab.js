@@ -9,6 +9,7 @@ export default function VideoTab({
   categories,
   allowedCategories,
   options,
+  reverse = false,
 }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -55,32 +56,36 @@ export default function VideoTab({
           <div className="categories hidden md:flex flex-col min-w-[220px]">
             <div
               key={"All"}
-              className={`mb-4 cursor-pointer ${
+              className={`mb-4 cursor-pointer hover:text-accent-1 ${
                 selectedCategory === "All" ? "text-accent-1" : ""
               }`}
               onClick={() => handleCategoryClick("All")}
             >
               ALL
             </div>
-            {categories
-              .filter((category) =>
-                allowedCategories.includes(category.categoryText)
-              )
-              .map((category) => {
-                return (
-                  <div
-                    key={category.sys.id}
-                    className={`mb-4 cursor-pointer ${
-                      selectedCategory === category.sys.id
-                        ? "text-accent-1"
-                        : ""
-                    }`}
-                    onClick={() => handleCategoryClick(category.sys.id)}
-                  >
-                    {category.categoryText.toUpperCase()}
-                  </div>
-                );
-              })}
+            <div
+              className={`flex ${reverse ? "flex-col" : "flex-col-reverse"}`}
+            >
+              {categories
+                .filter((category) =>
+                  allowedCategories.includes(category.categoryText)
+                )
+                .map((category) => {
+                  return (
+                    <div
+                      key={category.sys.id}
+                      className={`mb-4 cursor-pointer hover:text-accent-1 ${
+                        selectedCategory === category.sys.id
+                          ? "text-accent-1"
+                          : ""
+                      }`}
+                      onClick={() => handleCategoryClick(category.sys.id)}
+                    >
+                      {category.categoryText.toUpperCase()}
+                    </div>
+                  );
+                })}
+            </div>
           </div>
           <div className="videos flex flex-wrap max-w-[1200px]">
             {selectedCategory === "All" &&

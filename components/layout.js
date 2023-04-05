@@ -41,25 +41,25 @@ export default function Layout({
                 : "left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             } w-full ${
               home
-                ? "max-w-[300px] md:max-w-[410px]"
+                ? "max-w-[300px] md:max-w-[634px]"
                 : "max-w-[300px] md:max-w-[480px]"
             }`}
           >
             <h1
               className={`  ${
                 home
-                  ? "max-w-[300px] md:max-w-[410px]"
+                  ? "max-w-[300px] md:max-w-[634px]"
                   : "max-w-[300px] md:max-w-[480px]"
               } ${
                 alternate ? "text-accent-1 " : "text-white"
-              } text-4xl md:text-6xl font-bold mb-6`}
+              } text-4xl md:text-6xl font-bold mb-10`}
             >
               {heroData[0].title}
             </h1>
             <div
               className={`text-md md:text-md text-white   ${
                 home
-                  ? "max-w-[300px] md:max-w-[410px]"
+                  ? "max-w-[300px] md:max-w-[634px]"
                   : "max-w-[300px] md:max-w-[480px]"
               }`}
             >

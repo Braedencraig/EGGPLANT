@@ -20,7 +20,7 @@ export default function Navigation({ data: { nav, navItems } }) {
               <img src={nav[0].logo.url} alt="Eggplant" />
             </Link>
           </div>
-          <ul className="flex flex-row-reverse">
+          <ul className="flex flex-row">
             {navItems.map((item, i) => {
               return (
                 <li key={i} className="ml-7">
@@ -29,8 +29,8 @@ export default function Navigation({ data: { nav, navItems } }) {
                     className={`${
                       active === item.linkUrl
                         ? "text-accent-1 font-bold"
-                        : "text-white"
-                    } no-underline hover:underline`}
+                        : "text-white font-bold"
+                    } no-underline hover:text-accent-1`}
                   >
                     {item.linkText}
                   </Link>

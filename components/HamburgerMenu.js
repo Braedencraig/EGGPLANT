@@ -61,7 +61,10 @@ const HamburgerMenu = ({ open, toggle, api, styles, animationConfig }) => {
         className="menu-line"
       />
       <animated.div
-        style={{ transform: styles.transformMiddle }}
+        style={{
+          transform: styles.transformMiddle,
+          display: open ? "none" : "",
+        }}
         className="menu-line"
       />
       <animated.div

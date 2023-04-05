@@ -54,6 +54,8 @@ export default function Index({
                     clientName={video.clientName}
                     projectTitle={video.projectTitle}
                     copy={video.sonicBrandingText.json.content}
+                    data={getInTouch}
+                    people={people}
                   />
                 </div>
               ))}
@@ -84,7 +86,7 @@ export async function getStaticProps() {
       categories,
       navigation: {
         nav,
-        navItems,
+        navItems: navItems.reverse(),
       },
     },
   };
