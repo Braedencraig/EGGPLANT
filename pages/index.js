@@ -27,6 +27,9 @@ export default function Index({
   cities,
   socials,
 }) {
+  const [showModal, setShowModal] = useState(false);
+  const [activeVideo, setActiveVideo] = useState(null);
+
   const isMobile = () => {
     const ua = navigator.userAgent;
     return /Android|Mobi/i.test(ua);
@@ -121,6 +124,9 @@ export default function Index({
         cities={cities}
         socials={socials}
         home={true}
+        showModal={showModal}
+        activeVideo={activeVideo}
+        setShowModal={setShowModal}
       >
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -144,6 +150,9 @@ export default function Index({
                       url={video.videoUrl}
                       clientName={video.clientName}
                       projectTitle={video.projectTitle}
+                      setShowModal={setShowModal}
+                      setActiveVideo={setActiveVideo}
+                      showModal={showModal}
                     />
                   </div>
                 );
