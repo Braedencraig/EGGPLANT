@@ -39,7 +39,7 @@ export default function Awards({ data }) {
                 })}
                 <a
                   style={{ letterSpacing: "0.2em" }}
-                  className="mt-3 text-accent-1 underline"
+                  className="mt-3 text-accent-1 underline cursor-none"
                   href=""
                 >
                   {item.linkText.toUpperCase()}

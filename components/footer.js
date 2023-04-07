@@ -48,7 +48,7 @@ export default function Footer({ data, cities, socials }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   key={i}
-                  className="w-[47px] h-[47px] bg-white flex items-center justify-center ml-8"
+                  className="w-[47px] h-[47px] bg-white flex items-center justify-center ml-8 cursor-none"
                 ></a>
               );
             })}
@@ -68,7 +68,7 @@ export default function Footer({ data, cities, socials }) {
                   target="_blank"
                   rel="noopener noreferrer"
                   key={i}
-                  className="w-[47px] h-[47px] bg-white flex items-center justify-center ml-8"
+                  className="w-[47px] h-[47px] bg-white flex items-center justify-center ml-8 cursor-none"
                 ></a>
               );
             })}

@@ -10,6 +10,9 @@ export default function VideoTab({
   allowedCategories,
   options,
   reverse = false,
+  setShowModal,
+  showModal,
+  setActiveVideo,
 }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -56,7 +59,7 @@ export default function VideoTab({
           <div className="categories hidden md:flex flex-col min-w-[220px]">
             <div
               key={"All"}
-              className={`mb-4 cursor-pointer hover:text-accent-1 ${
+              className={`mb-4 hover:text-accent-1 ${
                 selectedCategory === "All" ? "text-accent-1" : ""
               }`}
               onClick={() => handleCategoryClick("All")}
@@ -74,7 +77,7 @@ export default function VideoTab({
                   return (
                     <div
                       key={category.sys.id}
-                      className={`mb-4 cursor-pointer hover:text-accent-1 ${
+                      className={`mb-4 hover:text-accent-1 ${
                         selectedCategory === category.sys.id
                           ? "text-accent-1"
                           : ""
@@ -91,25 +94,31 @@ export default function VideoTab({
             {selectedCategory === "All" &&
               allVideos.map((video, index) => (
                 <div
-                  className="w-[100%] sm:w-[50%] xl:w-[33%] video-tab cursor-pointer"
+                  className="w-[100%] sm:w-[50%] xl:w-[33%] video-tab"
                   key={index}
                 >
                   <VimeoThumbnail
                     url={video.videoUrl}
                     clientName={video.clientName}
                     projectTitle={video.projectTitle}
+                    setShowModal={setShowModal}
+                    showModal={showModal}
+                    setActiveVideo={setActiveVideo}
                   />
                 </div>
               ))}
             {filteredVideos.map((video, index) => (
               <div
-                className="w-[100%] sm:w-[50%] lg:w-[33%] video-tab cursor-pointer"
+                className="w-[100%] sm:w-[50%] lg:w-[33%] video-tab"
                 key={index}
               >
                 <VimeoThumbnail
                   url={video.videoUrl}
                   clientName={video.clientName}
                   projectTitle={video.projectTitle}
+                  setShowModal={setShowModal}
+                  showModal={showModal}
+                  setActiveVideo={setActiveVideo}
                 />
               </div>
             ))}

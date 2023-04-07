@@ -12,10 +12,50 @@
   font-style: normal;
 }
 
+.getintouch {
+    font-family: "Roboto", sans-serif;
+    letter-spacing: 0.2em;
+}
+
+
+.cursor {
+    width: 10px;
+    height: 10px;
+    background-color: #fefefe;
+    border: 2px solid #fefefe;
+    border-radius: 100%;
+    position: fixed;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    transition: all 150ms ease;
+    transition-property: background-color, opacity, transform, mix-blend-mode;
+    z-index: 9999;
+    /* mix-blend-mode: difference; */
+    mix-blend-mode: hard-light;
+
+}
+
+.cursor--hidden {
+    opacity: 0;
+}
+
+.cursor--link-hovered {
+    transform: translate(-50%, -50%) scale(2);
+    background-color: black;
+}
+
+.cursor--clicked {
+    transform: translate(-50%, -50%) scale(0.9);
+    background-color: black;
+}
+
 body,
 html {
   font-family: "Roboto", sans-serif;
   line-height: 25px;
+  background: black;
+  cursor: none;
+
 }
 h1,
 h2,
@@ -165,7 +205,7 @@ h6 {
   }
 }
 
-@media (max-width: 768px) {
+@media (max-width: 650px) {
   /* .video-tab {
     width: 100% !important;
   }

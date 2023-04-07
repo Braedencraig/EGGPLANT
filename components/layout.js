@@ -1,6 +1,9 @@
 import Navigation from "../components/navigation";
 import Footer from "../components/footer";
+import GetInTouch from "../components/getInTouch";
 import Meta from "../components/meta";
+import ReactPlayer from "react-player";
+import close from "../public/closemodal.png";
 
 export default function Layout({
   navigation,
@@ -13,7 +16,99 @@ export default function Layout({
   tiny = false,
   home = false,
   video = false,
+  showModal,
+  activeVideo,
+  setShowModal,
+  sonicBranding = false,
+  getInTouch,
+  people,
 }) {
+  if (showModal) {
+    return (
+      <>
+        <Meta />
+        <div className="bg-black">
+          {sonicBranding && <Navigation data={navigation} />}
+          <div
+            className={`bg-black flex justify-center min-h-screen pt-[80px] ${
+              sonicBranding && "mb-[0px] md:mb-[240px]"
+            }`}
+          >
+            <div
+              className={`player-wrapper ${
+                sonicBranding && "mt-[40px] md:mt-[140px]"
+              }`}
+            >
+              {!sonicBranding && (
+                <button
+                  className=" z-[10000] mb-6 relative"
+                  onClick={() => setShowModal(false)}
+                >
+                  <img src={close.src} alt="Close" />
+                </button>
+              )}
+              <ReactPlayer
+                controls={true}
+                url={activeVideo.id}
+                playing
+                className="react-player"
+                width="100%"
+                height="100%"
+              />
+              <div className="flex flex-col text-left my-6 text-fun pb-[80px]">
+                <p
+                  style={{ fontFamily: `Futura, san-serif` }}
+                  className="text-accent-1 text-[25px] md:text-4xl"
+                >
+                  {activeVideo.clientName &&
+                    activeVideo.clientName.toUpperCase()}{" "}
+                  -{" "}
+                  {activeVideo.projectTitle &&
+                    activeVideo.projectTitle.toUpperCase()}
+                </p>
+                {sonicBranding && (
+                  <>
+                    <div className="mt-6">
+                      <p className="text-accent-1 text-[16px] md:text-lg">
+                        {activeVideo.sonicTitle}
+                      </p>
+                    </div>
+
+                    <div className="mt-6">
+                      <p className="text-white text-[16px] md:text-lg">
+                        {activeVideo.sonicSubtitle}
+                      </p>
+                    </div>
+                    <div className="">
+                      <button
+                        style={{ borderRadius: "60px" }}
+                        className="transition duration-150 ease-out sonic-button hover:bg-white bg-accent-1 text-black md:max-w-[312px] flex items-center justify-between mt-[40px] md:mt-[60px] py-4 px-6 md:px-8 text-[16px] md:text-lg font-bold"
+                        onClick={() => {
+                          setShowModal(false);
+                          window.scrollTo(0, 0);
+                        }}
+                      >
+                        <span className="max-w-[42px]">
+                          <img src="/arrow.png" alt="Go back" />
+                        </span>
+                        <p className="ml-2">Sonic Branding</p>
+                      </button>
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+        </div>
+        {sonicBranding && (
+          <>
+            <GetInTouch data={getInTouch} people={people} />
+            <Footer data={footer} cities={cities} socials={socials} />
+          </>
+        )}
+      </>
+    );
+  }
   return (
     <>
       <Meta />
@@ -72,7 +167,7 @@ export default function Layout({
                   if (item.nodeType === "hyperlink") {
                     return (
                       <a
-                        className="text-md md:text-lg text-accent-1 underline"
+                        className="text-md md:text-lg text-accent-1 underline cursor-none"
                         href={item.data.uri}
                         key={index}
                       >

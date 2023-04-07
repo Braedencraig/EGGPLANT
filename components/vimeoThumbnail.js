@@ -1,24 +1,30 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import ReactPlayer from "react-player";
 import close from "../public/closemodal.png";
 
-function VimeoThumbnail({ url, clientName, projectTitle }) {
+function VimeoThumbnail({
+  url,
+  clientName,
+  projectTitle,
+  setShowModal,
+  setActiveVideo,
+}) {
   const [isHovering, setIsHovering] = useState(false);
-  const [showModal, setShowModal] = useState(false);
 
   const videoId = url.split("/").pop();
 
-  const handleClick = () => {
+  const handleClick = (id) => {
     setShowModal(true);
+    setActiveVideo({ id, clientName, projectTitle });
   };
 
   return (
     <>
       <div
-        className="relative overflow-hidden"
+        className="relative overflow-hidden videoMouse"
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
-        onClick={handleClick}
+        onClick={() => handleClick(url)}
       >
         <img
           srcSet={`
@@ -53,34 +59,6 @@ function VimeoThumbnail({ url, clientName, projectTitle }) {
           </div>
         </div>
       </div>
-      {showModal && (
-        <div className="bg-black fixed z-10 inset-0 top-0 left-0 right-0 bottom-0">
-          <div className="fixed inset-0 z-10 bg-black flex items-center justify-center">
-            <div className="player-wrapper">
-              <button
-                className="cursor-pointer z-[10000] mb-6 relative"
-                onClick={() => setShowModal(false)}
-              >
-                <img src={close.src} alt="Close" />
-              </button>
-              <ReactPlayer
-                controls={true}
-                url={url}
-                playing
-                className="react-player"
-                width="100%"
-                height="100%"
-              />
-              <div className="flex flex-col text-left mt-6 text-fun">
-                <p className="text-accent-1 text-xl">
-                  {clientName.toUpperCase()} / {projectTitle.toUpperCase()}
-                </p>
-                <p className="text-white text-lg">CATEGORY</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
     </>
   );
 }
