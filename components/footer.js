@@ -42,15 +42,45 @@ export default function Footer({ data, cities, socials }) {
           </div>
           <div className="flex">
             {socials.map((social, i) => {
-              return (
-                <a
-                  href={social.socialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={i}
-                  className="w-[47px] h-[47px] bg-white flex items-center justify-center ml-8 cursor-none"
-                ></a>
-              );
+              if (i === 0) {
+                return (
+                  <a
+                    href={social.socialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={i}
+                    className="w-[47px] h-[47px] flex items-center justify-center ml-8 cursor-none"
+                  >
+                    <img src="/instagram.png" alt="" />
+                  </a>
+                );
+              }
+              if (i === 1) {
+                return (
+                  <a
+                    href={social.socialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={i}
+                    className="w-[47px] h-[47px] flex items-center justify-center ml-8 cursor-none"
+                  >
+                    <img src="/vimeo.png" alt="" />
+                  </a>
+                );
+              }
+              if (i === 2) {
+                return (
+                  <a
+                    href={social.socialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={i}
+                    className="w-[47px] h-[47px] flex items-center justify-center ml-8 cursor-none"
+                  >
+                    <img src="/linkedin.png" alt="" />
+                  </a>
+                );
+              }
             })}
           </div>
         </div>
@@ -62,6 +92,47 @@ export default function Footer({ data, cities, socials }) {
               alt="Eggplant"
             />
             {socials.map((social, i) => {
+              if (i === 0) {
+                return (
+                  <a
+                    href={social.socialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={i}
+                    className="w-[47px] h-[47px] flex items-center justify-center ml-8 cursor-none"
+                  >
+                    <img src="/instagram.png" alt="" />
+                  </a>
+                );
+              }
+              if (i === 1) {
+                return (
+                  <a
+                    href={social.socialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={i}
+                    className="w-[47px] h-[47px] flex items-center justify-center ml-8 cursor-none"
+                  >
+                    <img src="/vimeo.png" alt="" />
+                  </a>
+                );
+              }
+              if (i === 2) {
+                return (
+                  <a
+                    href={social.socialUrl}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    key={i}
+                    className="w-[47px] h-[47px] flex items-center justify-center ml-8 cursor-none"
+                  >
+                    <img src="/linkedin.png" alt="" />
+                  </a>
+                );
+              }
+            })}
+            {/* {socials.map((social, i) => {
               return (
                 <a
                   href={social.socialUrl}
@@ -71,7 +142,7 @@ export default function Footer({ data, cities, socials }) {
                   className="w-[47px] h-[47px] bg-white flex items-center justify-center ml-8 cursor-none"
                 ></a>
               );
-            })}
+            })} */}
           </div>
           <div className="flex flex-col-reverse">
             {cities.map((city, i) => {

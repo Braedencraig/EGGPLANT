@@ -22,11 +22,11 @@ export default function GetInTouch({ data, people }) {
                     className="text-center md:text-left w-full md:w-[33%] mt-6"
                   >
                     <h3
-                    // style={{
-                    //   fontFamily: `Roboto, san-serif`,
-                    //   letterSpacing: "0.2em",
-                    // }}
-                    // className="font-bold"
+                      style={{
+                        fontFamily: `Roboto, san-serif`,
+                        letterSpacing: "0.2em",
+                      }}
+                      className="font-bold"
                     >
                       {person.name.toUpperCase()}
                     </h3>

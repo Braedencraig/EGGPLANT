@@ -30,8 +30,8 @@ export default function Layout({
         <div className="bg-black">
           {sonicBranding && <Navigation data={navigation} />}
           <div
-            className={`bg-black flex justify-center min-h-screen pt-[80px] ${
-              sonicBranding && "mb-[0px] md:mb-[240px]"
+            className={`bg-black flex justify-center pt-[80px] ${
+              sonicBranding && "h-[900px] md:h-[1200px]"
             }`}
           >
             <div
