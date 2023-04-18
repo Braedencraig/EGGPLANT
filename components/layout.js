@@ -31,7 +31,7 @@ export default function Layout({
           {sonicBranding && <Navigation data={navigation} />}
           <div
             className={`bg-black flex justify-center pt-[80px] ${
-              sonicBranding && "h-[900px] md:h-[1200px]"
+              sonicBranding && "h-[850px] md:h-[1200px]"
             }`}
           >
             <div
