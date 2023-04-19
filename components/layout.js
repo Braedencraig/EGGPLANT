@@ -128,11 +128,11 @@ export default function Layout({
           <div
             className={`absolute ${alternate ? "text-left" : "text-center"} ${
               heroData[0].title === "Video Games"
-                ? `${video ? "top-[42%]" : "top-[33%]"}`
+                ? `${video ? "top-[42%]" : "top-[28%] md:top-[50%]"}`
                 : "top-1/2"
             }  ${
               alternate
-                ? "md:text-left left-0 right-0 text-center container mx-auto px-[16px] md:px-[45px] md:block flex flex-col items-center"
+                ? "md:text-left left-0 right-0 text-center container2 mx-auto px-[16px] md:px-[45px] md:block flex flex-col items-center"
                 : "left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             } w-full ${
               home
@@ -143,7 +143,7 @@ export default function Layout({
             <h1
               className={`  ${
                 home
-                  ? "max-w-[300px] md:max-w-[634px]"
+                  ? "max-w-[300px] md:max-w-[634px] leading-[1.25]"
                   : "max-w-[300px] md:max-w-[480px]"
               } ${
                 alternate ? "text-accent-1 " : "text-white"
@@ -156,6 +156,8 @@ export default function Layout({
                 home
                   ? "max-w-[300px] md:max-w-[634px]"
                   : "max-w-[300px] md:max-w-[480px]"
+              } ${
+                heroData[0].title === "Video Games" ? "md:max-w-[600px]" : ""
               }`}
             >
               {heroData[0].copy.json ? (

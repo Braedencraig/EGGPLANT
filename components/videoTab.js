@@ -56,7 +56,7 @@ export default function VideoTab({
           />
         </div>
         <div className="flex justify-between items-start">
-          <div className="categories hidden md:flex flex-col min-w-[220px]">
+          <div className="categories hidden md:flex flex-col min-w-[250px]">
             <div
               key={"All"}
               className={`mb-4 hover:text-accent-1 ${
@@ -83,6 +83,7 @@ export default function VideoTab({
                           : ""
                       }`}
                       onClick={() => handleCategoryClick(category.sys.id)}
+                      style={{ letterSpacing: "0.2em" }}
                     >
                       {category.categoryText.toUpperCase()}
                     </div>

@@ -30,8 +30,8 @@ export default function GetInTouch({ data, people }) {
                     >
                       {person.name.toUpperCase()}
                     </h3>
-                    <p>{person.title}</p>
-                    <p>{person.email}</p>
+                    <p style={{ letterSpacing: "initial" }}>{person.title}</p>
+                    <p style={{ letterSpacing: "initial" }}>{person.email}</p>
                   </div>
                 );
               })}

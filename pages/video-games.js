@@ -18,6 +18,8 @@ export default function Index({
   videos,
   categories,
 }) {
+  const [showModal, setShowModal] = useState(false);
+  const [activeVideo, setActiveVideo] = useState(null);
   const isMobile = () => {
     const ua = navigator.userAgent;
     return /Android|Mobi/i.test(ua);
@@ -114,7 +116,9 @@ export default function Index({
         cities={cities}
         socials={socials}
         tiny={true}
-        video={true}
+        showModal={showModal}
+        activeVideo={activeVideo}
+        setShowModal={setShowModal}
       >
         <Head>
           <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -127,6 +131,9 @@ export default function Index({
           {/* SEO TO DO!!! */}
         </Head>
         <VideoTab
+          setShowModal={setShowModal}
+          setActiveVideo={setActiveVideo}
+          showModal={showModal}
           allowedCategories={["Video Games"]}
           videos={videos}
           categories={categories}
