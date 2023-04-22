@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import Container from "./container";
 import Link from "next/link";
 import Header from "./header";
+import Logo from "../public/egg_svg.svg";
 
 export default function Navigation({ data: { nav, navItems } }) {
   const [active, setActive] = useState(false);
@@ -15,9 +16,10 @@ export default function Navigation({ data: { nav, navItems } }) {
           <div>
             <Link
               href="/"
-              className="flex items-center flex-shrink-0 text-white mr-6"
+              className="flex items-center flex-shrink-0 text-white mr-6 svgfun"
             >
-              <img src={nav[0].logo.url} alt="Eggplant" />
+              <Logo />
+              {/* <img src={nav[0].logo.url} alt="Eggplant" /> */}
             </Link>
           </div>
           <ul className="flex flex-row">

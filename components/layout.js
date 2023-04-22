@@ -58,7 +58,11 @@ export default function Layout({
               <div className="flex flex-col text-left my-6 text-fun pb-[80px]">
                 <p
                   style={{ fontFamily: `Futura, san-serif` }}
-                  className="text-accent-1 text-[25px] md:text-4xl"
+                  className={`${
+                    sonicBranding
+                      ? "text-accent-1 text-[25px] md:text-4xl"
+                      : "text-accent-1 text-[18px]"
+                  }`}
                 >
                   {activeVideo.clientName &&
                     activeVideo.clientName.toUpperCase()}{" "}

@@ -54,6 +54,11 @@ section {
 
 }
 
+.svgfun svg {
+  width: 134px;
+  height: 134px;
+}
+
 .cursor--hidden {
     opacity: 0;
 }
@@ -61,6 +66,11 @@ section {
 .cursor--link-hovered {
     transform: translate(-50%, -50%) scale(2);
     background-color: black;
+}
+
+.cursor--bg-hovered {
+    background-color: black;
+    border: 2px solid black;
 }
 
 .cursor--clicked {

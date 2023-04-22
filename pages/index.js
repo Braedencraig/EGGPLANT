@@ -45,6 +45,7 @@ export default function Index({
     const [clicked, setClicked] = useState(false);
     const [linkHovered, setLinkHovered] = useState(false);
     const [hidden, setHidden] = useState(false);
+    const [bgHovered, setBgHovered] = useState(false);
 
     useEffect(() => {
       addEventListeners();
@@ -94,6 +95,11 @@ export default function Index({
         el.addEventListener("mouseout", () => setLinkHovered(false));
       });
 
+      document.querySelectorAll(".getintouch").forEach((el) => {
+        el.addEventListener("mouseover", () => setBgHovered(true));
+        el.addEventListener("mouseout", () => setBgHovered(false));
+      });
+
       document.querySelectorAll(".videoMouse").forEach((el) => {
         el.addEventListener("mouseover", () => setLinkHovered(true));
         el.addEventListener("mouseout", () => setLinkHovered(false));
@@ -108,6 +114,7 @@ export default function Index({
       "cursor--clicked": clicked,
       "cursor--hidden": hidden,
       "cursor--link-hovered": linkHovered,
+      "cursor--bg-hovered": bgHovered,
     });
 
     return (
