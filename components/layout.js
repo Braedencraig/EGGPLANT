@@ -36,7 +36,7 @@ export default function Layout({
           >
             <div
               className={`player-wrapper ${
-                sonicBranding && "mt-[40px] md:mt-[140px]"
+                sonicBranding && "mt-[40px] md:mt-[140px] fadein doit"
               }`}
             >
               {!sonicBranding && (
