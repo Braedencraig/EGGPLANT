@@ -1,5 +1,7 @@
 import Container from "../components/container";
 import { useState, useEffect } from "react";
+import { useAnimation, motion } from "framer-motion";
+import { useInView } from "react-intersection-observer";
 import classNames from "classnames";
 import Layout from "../components/layout";
 import {
@@ -13,6 +15,7 @@ import Awards from "../components/awards";
 import GetInTouch from "../components/getInTouch";
 import Head from "next/head";
 import VimeoThumbnail from "../components/vimeoThumbnail";
+import FadeInSection from "../components/fadeIn";
 
 export default function Index({
   navigation,
@@ -145,7 +148,10 @@ export default function Index({
               .filter((video) => video.videoUrl)
               .map((video, index) => {
                 return (
-                  <div className="w-[100%] sm:w-[50%] lg:w-[33%]" key={index}>
+                  <FadeInSection
+                    classNames="w-[100%] sm:w-[50%] lg:w-[33%]"
+                    key={index}
+                  >
                     <VimeoThumbnail
                       url={video.videoUrl}
                       clientName={video.clientName}
@@ -154,7 +160,7 @@ export default function Index({
                       setActiveVideo={setActiveVideo}
                       showModal={showModal}
                     />
-                  </div>
+                  </FadeInSection>
                 );
               })}
           </div>

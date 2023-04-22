@@ -6,6 +6,7 @@ import SonicThumbnail from "../components/sonicThumbnail";
 import { getNavigation, getSonicBranding, getVideos } from "../lib/api";
 import Head from "next/head";
 import classNames from "classnames";
+import FadeInSection from "../components/fadeIn";
 
 export default function Index({
   navigation,

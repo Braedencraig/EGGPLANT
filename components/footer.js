@@ -1,4 +1,5 @@
 import Container from "./container";
+import FadeInSection from "./fadeIn";
 
 export default function Footer({ data, cities, socials }) {
   return (
@@ -13,13 +14,13 @@ export default function Footer({ data, cities, socials }) {
       <Container>
         <div className="hidden justify-between py-14 text-white items-center lg:flex">
           <div className="flex items-center">
-            <div className="mr-20 -ml-[20px]">
+            <FadeInSection classNames="mr-20 -ml-[20px]" key={1}>
               <img src={data[0].logo.url} alt="Eggplant" />
-            </div>
+            </FadeInSection>
             <div className="flex flex-row-reverse">
               {cities.map((city, i) => {
                 return (
-                  <div className="mr-20" key={i}>
+                  <FadeInSection classNames="mr-20" key={i}>
                     <h3
                       style={{ letterSpacing: "0.2em" }}
                       className="text-lg text-accent-1"
@@ -35,12 +36,12 @@ export default function Footer({ data, cities, socials }) {
                         </div>
                       );
                     })}
-                  </div>
+                  </FadeInSection>
                 );
               })}
             </div>
           </div>
-          <div className="flex">
+          <FadeInSection classNames="flex" key={1}>
             {socials.map((social, i) => {
               if (i === 0) {
                 return (
@@ -82,9 +83,12 @@ export default function Footer({ data, cities, socials }) {
                 );
               }
             })}
-          </div>
+          </FadeInSection>
         </div>
-        <div className="flex justify-center py-14 text-white items-center lg:hidden flex-col">
+        <FadeInSection
+          classNames="flex justify-center py-14 text-white items-center lg:hidden flex-col"
+          key={1}
+        >
           <div className="flex items-center">
             <img
               className="max-w-[88px] max-h-[88px]"
@@ -132,17 +136,6 @@ export default function Footer({ data, cities, socials }) {
                 );
               }
             })}
-            {/* {socials.map((social, i) => {
-              return (
-                <a
-                  href={social.socialUrl}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  key={i}
-                  className="w-[47px] h-[47px] bg-white flex items-center justify-center ml-8 cursor-none"
-                ></a>
-              );
-            })} */}
           </div>
           <div className="flex flex-col-reverse">
             {cities.map((city, i) => {
@@ -167,7 +160,7 @@ export default function Footer({ data, cities, socials }) {
               );
             })}
           </div>
-        </div>
+        </FadeInSection>
       </Container>
     </footer>
   );

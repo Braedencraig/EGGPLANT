@@ -2,6 +2,7 @@ import { useState } from "react";
 import Dropdown from "react-dropdown";
 import Container from "./container";
 import VimeoThumbnail from "../components/vimeoThumbnail";
+import FadeInSection from "./fadeIn";
 import "react-dropdown/style.css";
 
 export default function VideoTab({
@@ -98,14 +99,16 @@ export default function VideoTab({
                   className="w-[100%] sm:w-[50%] xl:w-[33%] video-tab"
                   key={index}
                 >
-                  <VimeoThumbnail
-                    url={video.videoUrl}
-                    clientName={video.clientName}
-                    projectTitle={video.projectTitle}
-                    setShowModal={setShowModal}
-                    showModal={showModal}
-                    setActiveVideo={setActiveVideo}
-                  />
+                  <FadeInSection key={index}>
+                    <VimeoThumbnail
+                      url={video.videoUrl}
+                      clientName={video.clientName}
+                      projectTitle={video.projectTitle}
+                      setShowModal={setShowModal}
+                      showModal={showModal}
+                      setActiveVideo={setActiveVideo}
+                    />
+                  </FadeInSection>
                 </div>
               ))}
             {filteredVideos.map((video, index) => (

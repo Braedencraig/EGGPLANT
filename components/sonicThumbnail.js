@@ -1,5 +1,6 @@
 import { useState } from "react";
 import ReactPlayer from "react-player";
+import FadeInSection from "./fadeIn";
 import close from "../public/closemodal.png";
 
 function SonicThumbnail({
@@ -30,7 +31,7 @@ function SonicThumbnail({
   };
 
   return (
-    <>
+    <FadeInSection>
       <div
         className="relative overflow-hidden videoMouse"
         onMouseEnter={() => setIsHovering(true)}
@@ -69,7 +70,7 @@ function SonicThumbnail({
           })}
         </div>
       </div>
-    </>
+    </FadeInSection>
   );
 }
 

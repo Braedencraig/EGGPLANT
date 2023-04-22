@@ -1,4 +1,5 @@
 import Container from "./container";
+import FadeInSection from "./fadeIn";
 
 export default function Awards({ data }) {
   return (
@@ -7,8 +8,8 @@ export default function Awards({ data }) {
         <div className="pt-20 pb-10 flex flex-row w-full flex-wrap justify-center sm:justify-around lg:justify-between">
           {data.map((item, index) => {
             return (
-              <div
-                className="w-[100%] sm:w-[50%] lg:w-[25%] max-w-[250px] text-center flex flex-col items-center mb-10"
+              <FadeInSection
+                classNames="w-[100%] sm:w-[50%] lg:w-[25%] max-w-[250px] text-center flex flex-col items-center mb-10"
                 key={index}
               >
                 <img src="/award.png" alt="Award Logo" />
@@ -44,7 +45,7 @@ export default function Awards({ data }) {
                 >
                   {item.linkText.toUpperCase()}
                 </a>
-              </div>
+              </FadeInSection>
             );
           })}
         </div>

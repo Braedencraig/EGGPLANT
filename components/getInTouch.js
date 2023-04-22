@@ -1,4 +1,5 @@
 import Container from "./container";
+import FadeInSection from "./fadeIn";
 
 export default function GetInTouch({ data, people }) {
   return (
@@ -7,39 +8,33 @@ export default function GetInTouch({ data, people }) {
         <div className="flex justify-between py-14">
           <div>
             <div>
-              <h3
-                style={{ fontFamily: `Futura, san-serif` }}
-                className="text-center md:text-left text-4xl text-accent-1 font-bold"
-              >
-                {data[0].title}
-              </h3>
+              <FadeInSection key={1}>
+                <h3
+                  style={{ fontFamily: `Futura, san-serif` }}
+                  className="text-center md:text-left text-4xl text-accent-1 font-bold"
+                >
+                  {data[0].title}
+                </h3>
+              </FadeInSection>
             </div>
             <div className="flex w-full flex-wrap">
               {people.map((person, i) => {
                 return (
-                  <div
+                  <FadeInSection
+                    classNames="text-center md:text-left w-full md:w-[33%] mt-6"
                     key={i}
-                    className="text-center md:text-left w-full md:w-[33%] mt-6"
                   >
-                    <h3
-                      // style={{
-                      //   fontFamily: `Roboto, san-serif`,
-                      //   letterSpacing: "0.2em",
-                      // }}
-                      className="font-bold"
-                    >
-                      {person.name.toUpperCase()}
-                    </h3>
+                    <h3 className="font-bold">{person.name.toUpperCase()}</h3>
                     <p style={{ letterSpacing: "initial" }}>{person.title}</p>
                     <p style={{ letterSpacing: "initial" }}>{person.email}</p>
-                  </div>
+                  </FadeInSection>
                 );
               })}
             </div>
           </div>
-          <div className="hidden lg:flex">
+          <FadeInSection classNames="hidden lg:flex" key={1}>
             <img src={data[0].image.url} alt="Eggplant Office" />
-          </div>
+          </FadeInSection>
         </div>
       </Container>
     </div>
