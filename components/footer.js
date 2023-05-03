@@ -46,7 +46,7 @@ export default function Footer({ data, cities, socials }) {
               if (i === 0) {
                 return (
                   <a
-                    href={social.socialUrl}
+                    href="https://www.instagram.com/eggplantmusicandsound/?hl=en"
                     target="_blank"
                     rel="noopener noreferrer"
                     key={i}
@@ -59,7 +59,7 @@ export default function Footer({ data, cities, socials }) {
               if (i === 1) {
                 return (
                   <a
-                    href={social.socialUrl}
+                    href="https://vimeo.com/eggplantmusicandsound"
                     target="_blank"
                     rel="noopener noreferrer"
                     key={i}
@@ -72,7 +72,7 @@ export default function Footer({ data, cities, socials }) {
               if (i === 2) {
                 return (
                   <a
-                    href={social.socialUrl}
+                    href="https://www.linkedin.com/company/eggplant-collective/?originalSubdomain=ca"
                     target="_blank"
                     rel="noopener noreferrer"
                     key={i}
@@ -99,7 +99,7 @@ export default function Footer({ data, cities, socials }) {
               if (i === 0) {
                 return (
                   <a
-                    href={social.socialUrl}
+                    href="https://www.instagram.com/eggplantmusicandsound/?hl=en"
                     target="_blank"
                     rel="noopener noreferrer"
                     key={i}
@@ -112,7 +112,7 @@ export default function Footer({ data, cities, socials }) {
               if (i === 1) {
                 return (
                   <a
-                    href={social.socialUrl}
+                    href="https://vimeo.com/eggplantmusicandsound"
                     target="_blank"
                     rel="noopener noreferrer"
                     key={i}
@@ -125,7 +125,7 @@ export default function Footer({ data, cities, socials }) {
               if (i === 2) {
                 return (
                   <a
-                    href={social.socialUrl}
+                    href="https://www.linkedin.com/company/eggplant-collective/?originalSubdomain=ca"
                     target="_blank"
                     rel="noopener noreferrer"
                     key={i}
