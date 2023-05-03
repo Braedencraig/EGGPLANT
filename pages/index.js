@@ -145,10 +145,10 @@ export default function Index({
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
             rel="stylesheet"
           />
-          <title>{`Eggplant`}</title>
+          <title>{`Eggplant Music & Sound – Original Music.  Music Supervision.  Music Licensing.  Sound Design.  Voice Direction.`}</title>
         </Head>
         <Container fullBleed={true} heroFull={true}>
-          <div className="md:py-[60px] w-full flex flex-wrap">
+          <div className="md:py-[80px] w-full flex flex-wrap">
             {videos
               .concat(videos2)
               .filter((video) => video.categoryCollection.items.length === 0)
@@ -160,6 +160,7 @@ export default function Index({
                     key={index}
                   >
                     <VimeoThumbnail
+                      thumbnail={video.thumbnailPhoto}
                       url={video.videoUrl}
                       clientName={video.clientName}
                       projectTitle={video.projectTitle}

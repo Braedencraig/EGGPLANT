@@ -4,7 +4,12 @@ import Layout from "../components/layout";
 import VideoTab from "../components/videoTab";
 import classNames from "classnames";
 
-import { getNavigation, getAdvertising, getVideos } from "../lib/api";
+import {
+  getNavigation,
+  getAdvertising,
+  getVideos,
+  getMoreVideos,
+} from "../lib/api";
 import Head from "next/head";
 
 export default function Index({
@@ -16,6 +21,7 @@ export default function Index({
   getInTouch,
   people,
   videos,
+  videos2,
   categories,
 }) {
   const [showModal, setShowModal] = useState(false);
@@ -134,8 +140,7 @@ export default function Index({
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
             rel="stylesheet"
           />
-          <title>{`Eggplant`}</title>
-          {/* SEO TO DO!!! */}
+          <title>{`Eggplant Music & Sound – Original Music.  Music Supervision.  Music Licensing.  Sound Design.  Voice Direction.`}</title>
         </Head>
         <VideoTab
           setShowModal={setShowModal}
@@ -147,7 +152,7 @@ export default function Index({
             "Sound Design",
             "Voice Direction",
           ]}
-          videos={videos}
+          videos={videos.concat(videos2)}
           categories={categories}
           options={[
             { value: "All", label: "ALL" },
@@ -169,6 +174,7 @@ export async function getStaticProps() {
   const { advertising, footer, cities, socials, getInTouch, people } =
     (await getAdvertising()) ?? [];
   const { videos, categories } = (await getVideos()) ?? [];
+  const { videos2, categories2 } = (await getMoreVideos()) ?? [];
 
   return {
     props: {
@@ -179,6 +185,7 @@ export async function getStaticProps() {
       getInTouch,
       people,
       videos,
+      videos2,
       categories,
       navigation: {
         nav,

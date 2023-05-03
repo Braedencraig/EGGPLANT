@@ -8,6 +8,7 @@ function VimeoThumbnail({
   projectTitle,
   setShowModal,
   setActiveVideo,
+  thumbnail,
 }) {
   const [isHovering, setIsHovering] = useState(false);
 
@@ -26,19 +27,33 @@ function VimeoThumbnail({
         onMouseLeave={() => setIsHovering(false)}
         onClick={() => handleClick(url)}
       >
-        <img
-          srcSet={`
+        {thumbnail?.url !== undefined ? (
+          <img
+            srcSet={`
+        ${thumbnail.url} 640w, 
+        ${thumbnail.url} 640w, 
+        ${thumbnail.url} 200w, 
+        ${thumbnail.url} 100w
+    `}
+            sizes="(max-width: 640px) 100vw, 640px"
+            src={`${thumbnail.url}`}
+            alt="Vimeo Thumbnail"
+            className="w-full h-full object-cover"
+          />
+        ) : (
+          <img
+            srcSet={`
         https://vumbnail.com/${videoId}.jpg 640w, 
         https://vumbnail.com/${videoId}_large.jpg 640w, 
         https://vumbnail.com/${videoId}_medium.jpg 200w, 
         https://vumbnail.com/${videoId}_small.jpg 100w
     `}
-          sizes="(max-width: 640px) 100vw, 640px"
-          src={`https://vumbnail.com/${videoId}.jpg`}
-          alt="Vimeo Thumbnail"
-          className="w-full h-full object-cover special"
-        />
-
+            sizes="(max-width: 640px) 100vw, 640px"
+            src={`https://vumbnail.com/${videoId}.jpg`}
+            alt="Vimeo Thumbnail"
+            className="w-full h-full object-cover"
+          />
+        )}
         <div
           className={`absolute inset-0 bg-black flex items-center justify-center text-white transition-opacity duration-500 ${
             isHovering ? "opacity-[90%]" : "opacity-0"

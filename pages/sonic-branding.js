@@ -3,7 +3,12 @@ import GetInTouch from "../components/getInTouch";
 import Container from "../components/container";
 import Layout from "../components/layout";
 import SonicThumbnail from "../components/sonicThumbnail";
-import { getNavigation, getSonicBranding, getVideos } from "../lib/api";
+import {
+  getNavigation,
+  getSonicBranding,
+  getVideos,
+  getMoreVideos,
+} from "../lib/api";
 import Head from "next/head";
 import classNames from "classnames";
 import FadeInSection from "../components/fadeIn";
@@ -17,11 +22,13 @@ export default function Index({
   getInTouch,
   people,
   videos,
+  videos2,
   categories,
 }) {
   const [showModal, setShowModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
   const sonicBrandingVideos = videos
+    .concat(videos2)
     .map((video) => (video.sonicBrandingText !== null ? video : null))
     .filter((el) => el !== null);
 
@@ -141,8 +148,7 @@ export default function Index({
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
             rel="stylesheet"
           />
-          <title>{`Eggplant`}</title>
-          {/* SEO TO DO!!! */}
+          <title>{`Eggplant Music & Sound – Original Music.  Music Supervision.  Music Licensing.  Sound Design.  Voice Direction.`}</title>
         </Head>
         <div className="videos bg-black py-20">
           <Container>
@@ -154,6 +160,7 @@ export default function Index({
                   key={index}
                 >
                   <SonicThumbnail
+                    thumbnail={video.thumbnailPhoto}
                     url={video.videoUrl}
                     clientName={video.clientName}
                     projectTitle={video.projectTitle}
@@ -182,6 +189,7 @@ export async function getStaticProps() {
   const { sonicBranding, footer, cities, socials, getInTouch, people } =
     (await getSonicBranding()) ?? [];
   const { videos, categories } = (await getVideos()) ?? [];
+  const { videos2, categories2 } = (await getMoreVideos()) ?? [];
 
   return {
     props: {
@@ -192,6 +200,7 @@ export async function getStaticProps() {
       getInTouch,
       people,
       videos,
+      videos2,
       categories,
       navigation: {
         nav,

@@ -67,30 +67,32 @@ export default function VideoTab({
             >
               ALL
             </div>
-            <div
-              className={`flex ${reverse ? "flex-col" : "flex-col-reverse"}`}
-            >
-              {categories
-                .filter((category) =>
-                  allowedCategories.includes(category.categoryText)
-                )
-                .map((category) => {
-                  return (
-                    <div
-                      key={category.sys.id}
-                      className={`mb-4 hover:text-accent-1 ${
-                        selectedCategory === category.sys.id
-                          ? "text-accent-1"
-                          : ""
-                      }`}
-                      onClick={() => handleCategoryClick(category.sys.id)}
-                      style={{ letterSpacing: "0.2em" }}
-                    >
-                      {category.categoryText.toUpperCase()}
-                    </div>
-                  );
-                })}
-            </div>
+            {allowedCategories[0] === "Video Games" ? null : (
+              <div
+                className={`flex ${reverse ? "flex-col" : "flex-col-reverse"}`}
+              >
+                {categories
+                  .filter((category) =>
+                    allowedCategories.includes(category.categoryText)
+                  )
+                  .map((category) => {
+                    return (
+                      <div
+                        key={category.sys.id}
+                        className={`mb-4 hover:text-accent-1 ${
+                          selectedCategory === category.sys.id
+                            ? "text-accent-1"
+                            : ""
+                        }`}
+                        onClick={() => handleCategoryClick(category.sys.id)}
+                        style={{ letterSpacing: "0.2em" }}
+                      >
+                        {category.categoryText.toUpperCase()}
+                      </div>
+                    );
+                  })}
+              </div>
+            )}
           </div>
           <div className="videos flex flex-wrap max-w-[1200px]">
             {selectedCategory === "All" &&
@@ -101,6 +103,7 @@ export default function VideoTab({
                 >
                   <FadeInSection key={index}>
                     <VimeoThumbnail
+                      thumbnail={video.thumbnailPhoto}
                       url={video.videoUrl}
                       clientName={video.clientName}
                       projectTitle={video.projectTitle}

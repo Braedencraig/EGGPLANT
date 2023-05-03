@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import classNames from "classnames";
 import VideoTab from "../components/videoTab";
-import { getNavigation, getTvFilm, getVideos } from "../lib/api";
+import { getNavigation, getTvFilm, getVideos, getMoreVideos } from "../lib/api";
 import Head from "next/head";
 
 export default function Index({
@@ -15,6 +15,7 @@ export default function Index({
   getInTouch,
   people,
   videos,
+  videos2,
   categories,
 }) {
   const [showModal, setShowModal] = useState(false);
@@ -132,8 +133,7 @@ export default function Index({
             href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700;900&display=swap"
             rel="stylesheet"
           />
-          <title>{`Eggplant`}</title>
-          {/* SEO TO DO!!! */}
+          <title>{`Eggplant Music & Sound – Original Music.  Music Supervision.  Music Licensing.  Sound Design.  Voice Direction.`}</title>
         </Head>
         <VideoTab
           reverse={true}
@@ -148,7 +148,7 @@ export default function Index({
             "Original Song",
             "Music Supervision",
           ]}
-          videos={videos}
+          videos={videos.concat(videos2)}
           categories={categories}
           options={[
             { value: "All", label: "ALL" },
@@ -172,6 +172,7 @@ export async function getStaticProps() {
   const { tvFilm, footer, cities, socials, getInTouch, people } =
     (await getTvFilm()) ?? [];
   const { videos, categories } = (await getVideos()) ?? [];
+  const { videos2, categories2 } = (await getMoreVideos()) ?? [];
 
   return {
     props: {
@@ -182,7 +183,9 @@ export async function getStaticProps() {
       getInTouch,
       people,
       videos,
+      videos2,
       categories,
+      categories2,
       navigation: {
         nav,
         navItems: navItems.reverse(),

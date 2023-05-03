@@ -251,9 +251,7 @@ h6 {
   max-width: 960px !important;
 }
 
-.special {
-  transform: scale(1.1);
-}
+
 
 @media (max-width: 960px) {
   .player-wrapper {

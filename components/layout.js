@@ -120,7 +120,7 @@ export default function Layout({
         <div className={`${tiny ? "h-[520px]" : ""} relative`}>
           <video
             className={`h-full w-full object-cover ${
-              tiny ? "min-h-[520px]" : "min-h-[609px]"
+              tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
             }`}
             src={heroData[0].backgroundVideo.url}
             autoPlay
