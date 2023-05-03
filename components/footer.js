@@ -12,7 +12,7 @@ export default function Footer({ data, cities, socials }) {
       }}
     >
       <Container>
-        <div className="hidden justify-between py-14 text-white items-center lg:flex">
+        <div className="hidden justify-between   py-14 text-white items-center lg:flex">
           <div className="flex items-center">
             <FadeInSection classNames="mr-20 -ml-[20px]" key={1}>
               <img src={data[0].logo.url} alt="Eggplant" />
