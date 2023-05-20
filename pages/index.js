@@ -177,7 +177,7 @@ export default function Index({
         <Awards data={awards} />
         <GetInTouch data={getInTouch} people={people} />
       </Layout>
-      <Cursor />
+      {isMobile() ? null : <Cursor />}
     </>
   );
 }

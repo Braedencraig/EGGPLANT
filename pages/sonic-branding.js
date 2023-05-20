@@ -179,7 +179,7 @@ export default function Index({
         </div>
         <GetInTouch data={getInTouch} people={people} />
       </Layout>
-      <Cursor />
+      {isMobile() ? null : <Cursor />}
     </>
   );
 }

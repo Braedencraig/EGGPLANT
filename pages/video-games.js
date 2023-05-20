@@ -155,7 +155,7 @@ export default function Index({
         />
         <GetInTouch data={getInTouch} people={people} />
       </Layout>
-      <Cursor />
+      {isMobile() ? null : <Cursor />}
     </>
   );
 }
