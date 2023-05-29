@@ -26,6 +26,7 @@ function VimeoThumbnail({
         onMouseEnter={() => setIsHovering(true)}
         onMouseLeave={() => setIsHovering(false)}
         onClick={() => handleClick(url)}
+        style={{ height: "100%" }}
       >
         {thumbnail?.url !== undefined ? (
           <img

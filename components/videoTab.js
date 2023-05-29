@@ -101,17 +101,17 @@ export default function VideoTab({
                   className="w-[100%] sm:w-[50%] xl:w-[33%] video-tab"
                   key={index}
                 >
-                  <FadeInSection key={index}>
-                    <VimeoThumbnail
-                      thumbnail={video.thumbnailPhoto}
-                      url={video.videoUrl}
-                      clientName={video.clientName}
-                      projectTitle={video.projectTitle}
-                      setShowModal={setShowModal}
-                      showModal={showModal}
-                      setActiveVideo={setActiveVideo}
-                    />
-                  </FadeInSection>
+                  {/* <FadeInSection key={index}> */}
+                  <VimeoThumbnail
+                    thumbnail={video.thumbnailPhoto}
+                    url={video.videoUrl}
+                    clientName={video.clientName}
+                    projectTitle={video.projectTitle}
+                    setShowModal={setShowModal}
+                    showModal={showModal}
+                    setActiveVideo={setActiveVideo}
+                  />
+                  {/* </FadeInSection> */}
                 </div>
               ))}
             {filteredVideos.map((video, index) => (

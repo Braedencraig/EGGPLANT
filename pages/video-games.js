@@ -31,8 +31,6 @@ export default function Index({
     return /Android|Mobi/i.test(ua);
   };
 
-  console.log("asdf");
-
   const Cursor = () => {
     if (typeof navigator !== "undefined" && isMobile()) return null;
 

@@ -155,10 +155,11 @@ export default function Index({
               .filter((video) => video.videoUrl)
               .map((video, index) => {
                 return (
-                  <FadeInSection
-                    classNames="w-[100%] sm:w-[50%] lg:w-[33%]"
-                    key={index}
-                  >
+                  // <FadeInSection
+                  // classNames="w-[100%] sm:w-[50%] lg:w-[33%]"
+                  // key={index}
+                  // >
+                  <div className="w-[100%] sm:w-[50%] lg:w-[33%]" key={index}>
                     <VimeoThumbnail
                       thumbnail={video.thumbnailPhoto}
                       url={video.videoUrl}
@@ -168,7 +169,8 @@ export default function Index({
                       setActiveVideo={setActiveVideo}
                       showModal={showModal}
                     />
-                  </FadeInSection>
+                  </div>
+                  // </FadeInSection>
                 );
               })}
           </div>
