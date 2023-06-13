@@ -12,6 +12,7 @@ import {
 import Head from "next/head";
 import classNames from "classnames";
 import FadeInSection from "../components/fadeIn";
+import { createClient } from "contentful";
 
 export default function Index({
   navigation,
@@ -24,13 +25,14 @@ export default function Index({
   videos,
   videos2,
   categories,
+  orderedVideos,
 }) {
   const [showModal, setShowModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
-  const sonicBrandingVideos = videos
-    .concat(videos2)
-    .map((video) => (video.sonicBrandingText !== null ? video : null))
-    .filter((el) => el !== null);
+  // const sonicBrandingVideos = videos
+  //   .concat(videos2)
+  //   .map((video) => (video.sonicBrandingText !== null ? video : null))
+  //   .filter((el) => el !== null);
 
   const isMobile = () => {
     const ua = navigator.userAgent;
@@ -124,6 +126,8 @@ export default function Index({
     );
   };
 
+  console.log(orderedVideos);
+
   return (
     <>
       <Layout
@@ -153,20 +157,20 @@ export default function Index({
         <div className="videos bg-black py-20">
           <Container>
             <div className="flex flex-wrap py-[10px]">
-              {sonicBrandingVideos.map((video, index) => (
+              {orderedVideos.map((video, index) => (
                 <div
                   style={{ border: "10px solid black" }}
                   className="w-[100%] sm:w-[50%] lg:w-[calc(33%)] video-tab mb-4"
                   key={index}
                 >
                   <SonicThumbnail
-                    thumbnail={video.thumbnailPhoto}
-                    url={video.videoUrl}
-                    clientName={video.clientName}
-                    projectTitle={video.projectTitle}
-                    sonicTitle={video.sonicBrandingTitle}
-                    sonicSubtitle={video.sonicBrandingSubtitle}
-                    copy={video.sonicBrandingText.json.content}
+                    thumbnail={video.fields.thumbnailPhoto}
+                    url={video.fields.videoUrl}
+                    clientName={video.fields.clientName}
+                    projectTitle={video.fields.projectTitle}
+                    sonicTitle={video.fields.sonicBrandingTitle}
+                    sonicSubtitle={video.fields.sonicBrandingSubtitle}
+                    copy={video.fields.sonicBrandingText}
                     data={getInTouch}
                     people={people}
                     setShowModal={setShowModal}
@@ -191,6 +195,17 @@ export async function getStaticProps() {
   const { videos, categories } = (await getVideos()) ?? [];
   const { videos2, categories2 } = (await getMoreVideos()) ?? [];
 
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  });
+
+  const data = await client.getEntries();
+
+  const orderedVideos = data.items.filter(
+    (item) => item.sys.contentType.sys.id === "sonicBranding"
+  );
+
   return {
     props: {
       sonicBranding,
@@ -206,6 +221,7 @@ export async function getStaticProps() {
         nav,
         navItems: navItems.reverse(),
       },
+      orderedVideos: orderedVideos[0].fields.videos,
     },
     revalidate: 10,
   };

@@ -2,9 +2,10 @@ import GetInTouch from "../components/getInTouch";
 import { useState, useEffect } from "react";
 import Layout from "../components/layout";
 import classNames from "classnames";
-import VideoTab from "../components/videoTab";
+import VideoTabOrdered from "../components/videoTabOrdered";
 import { getNavigation, getTvFilm, getVideos, getMoreVideos } from "../lib/api";
 import Head from "next/head";
+import { createClient } from "contentful";
 
 export default function Index({
   navigation,
@@ -17,6 +18,7 @@ export default function Index({
   videos,
   videos2,
   categories,
+  orderedVideos,
 }) {
   const [showModal, setShowModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
@@ -135,7 +137,7 @@ export default function Index({
           />
           <title>{`Eggplant Music & Sound – Original Music.  Music Supervision.  Music Licensing.  Sound Design.  Voice Direction.`}</title>
         </Head>
-        <VideoTab
+        <VideoTabOrdered
           reverse={true}
           setShowModal={setShowModal}
           setActiveVideo={setActiveVideo}
@@ -148,7 +150,7 @@ export default function Index({
             "Original Song",
             "Music Supervision",
           ]}
-          videos={videos.concat(videos2)}
+          videos={orderedVideos}
           categories={categories}
           options={[
             { value: "All", label: "ALL" },
@@ -174,6 +176,17 @@ export async function getStaticProps() {
   const { videos, categories } = (await getVideos()) ?? [];
   const { videos2, categories2 } = (await getMoreVideos()) ?? [];
 
+  const client = createClient({
+    space: process.env.CONTENTFUL_SPACE_ID,
+    accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+  });
+
+  const data = await client.getEntries();
+
+  const orderedVideos = data.items.filter(
+    (item) => item.sys.contentType.sys.id === "tvFilm"
+  );
+
   return {
     props: {
       tvFilm,
@@ -190,6 +203,7 @@ export async function getStaticProps() {
         nav,
         navItems: navItems.reverse(),
       },
+      orderedVideos: orderedVideos[0].fields.videos,
     },
     revalidate: 10,
   };
