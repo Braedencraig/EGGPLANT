@@ -207,5 +207,6 @@ export async function getStaticProps() {
         navItems: navItems.reverse(),
       },
     },
+    revalidate: 10,
   };
 }
