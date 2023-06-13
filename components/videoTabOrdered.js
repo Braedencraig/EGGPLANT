@@ -51,7 +51,7 @@ export default function VideoTabOrdered({
             }
           />
         </div>
-        <div className="flex justify-between items-start">
+        <div className="flex justify-between items-start flex-col">
           <div className="categories hidden md:flex flex-col min-w-[250px]">
             <div
               key={"All"}
@@ -89,11 +89,11 @@ export default function VideoTabOrdered({
               </div>
             )}
           </div>
-          <div className="videos flex flex-wrap max-w-[1200px]">
+          <div className="videos flex flex-wrap max-w-[1600px]">
             {selectedCategory === "All" &&
               videos.map((video, index) => (
                 <div
-                  className="w-[100%] sm:w-[50%] xl:w-[33%] video-tab"
+                  className="w-[100%] sm:w-[50%] xl:w-[25%] video-tab"
                   key={index}
                 >
                   <VimeoThumbnail
@@ -109,7 +109,7 @@ export default function VideoTabOrdered({
               ))}
             {filteredVideos.map((video, index) => (
               <div
-                className="w-[100%] sm:w-[50%] lg:w-[33%] video-tab"
+                className="w-[100%] sm:w-[50%] lg:w-[25%] video-tab"
                 key={index}
               >
                 <VimeoThumbnail
