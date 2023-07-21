@@ -33,7 +33,7 @@ export default function VideoTabOrdered({
   return (
     <div className="bg-black text-white py-24">
       <Container heroFull>
-        <div className="block md:hidden mb-10">
+        <div className="block lg:hidden mb-10">
           <Dropdown
             options={options}
             onChange={(val) => handleCategoryClick(val.value)}
@@ -52,19 +52,12 @@ export default function VideoTabOrdered({
           />
         </div>
         <div className="flex justify-between items-start flex-col">
-          <div className="categories hidden md:flex flex-col min-w-[250px]">
-            <div
-              key={"All"}
-              className={`mb-4 hover:text-accent-1 ${
-                selectedCategory === "All" ? "text-accent-1" : ""
-              }`}
-              onClick={() => handleCategoryClick("All")}
-            >
-              ALL
-            </div>
+          <div className="categories hidden lg:flex flex-row w-full pb-12 nav">
             {allowedCategories[0] === "Video Games" ? null : (
               <div
-                className={`flex ${reverse ? "flex-col" : "flex-col-reverse"}`}
+                className={`flex justify-around w-full ${
+                  reverse ? "flex-row" : "flex-row-reverse"
+                }`}
               >
                 {categories
                   .filter((category) =>
@@ -72,20 +65,32 @@ export default function VideoTabOrdered({
                   )
                   .map((category) => {
                     return (
-                      <div
-                        key={category.sys.id}
-                        className={`mb-4 hover:text-accent-1 ${
-                          selectedCategory === category.sys.id
-                            ? "text-accent-1"
-                            : ""
-                        }`}
-                        onClick={() => handleCategoryClick(category.sys.id)}
-                        style={{ letterSpacing: "0.2em" }}
-                      >
-                        {category.categoryText.toUpperCase()}
-                      </div>
+                      <>
+                        <div
+                          key={category.sys.id}
+                          className={`mb-4 hover:text-accent-1 testnav ${
+                            selectedCategory === category.sys.id
+                              ? "text-accent-1"
+                              : ""
+                          }`}
+                          onClick={() => handleCategoryClick(category.sys.id)}
+                          style={{ letterSpacing: "0.2em" }}
+                        >
+                          {category.categoryText.toUpperCase()}
+                        </div>
+                        <>|</>
+                      </>
                     );
                   })}
+                <div
+                  key={"All"}
+                  className={`mb-4 hover:text-accent-1 testnav ${
+                    selectedCategory === "All" ? "text-accent-1" : ""
+                  }`}
+                  onClick={() => handleCategoryClick("All")}
+                >
+                  ALL
+                </div>
               </div>
             )}
           </div>

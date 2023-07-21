@@ -138,7 +138,7 @@ export default function Index({
           <title>{`Eggplant Music & Sound – Original Music.  Music Supervision.  Music Licensing.  Sound Design.  Voice Direction.`}</title>
         </Head>
         <VideoTabOrdered
-          reverse={true}
+          reverse={false}
           setShowModal={setShowModal}
           setActiveVideo={setActiveVideo}
           showModal={showModal}
