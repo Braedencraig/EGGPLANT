@@ -15,6 +15,7 @@ export default function VideoTabOrdered({
   setShowModal,
   showModal,
   setActiveVideo,
+  tvFilm = false,
 }) {
   const [selectedCategory, setSelectedCategory] = useState("All");
 
@@ -52,7 +53,11 @@ export default function VideoTabOrdered({
           />
         </div>
         <div className="flex justify-between items-start flex-col">
-          <div className="categories hidden lg:flex flex-row w-full pb-12 nav">
+          <div
+            className={`${
+              tvFilm && "m-auto max-w-[800px]"
+            } categories hidden lg:flex flex-row w-full pb-12 nav`}
+          >
             {allowedCategories[0] === "Video Games" ? null : (
               <div
                 className={`flex justify-around w-full ${

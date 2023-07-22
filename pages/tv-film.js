@@ -142,6 +142,7 @@ export default function Index({
           setShowModal={setShowModal}
           setActiveVideo={setActiveVideo}
           showModal={showModal}
+          tvFilm={true}
           allowedCategories={[
             // "TV",
             // "Score",
