@@ -99,7 +99,7 @@ export default function VideoTabOrdered({
               </div>
             )}
           </div>
-          <div className="videos flex flex-wrap max-w-[1600px]">
+          <div className="videos flex flex-wrap">
             {selectedCategory === "All" &&
               videos.map((video, index) => (
                 <div
