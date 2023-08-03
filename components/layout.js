@@ -32,7 +32,7 @@ export default function Layout({
           <div
             className={`bg-black flex justify-center pt-[80px] ${
               sonicBranding &&
-              "h-[850px] md:h-[1200px] mb-[150px] lg:mb-[300px]"
+              "h-[850px] md:h-[1200px] mb-[100px] sm:mb-[200px] lg:mb-[300px]"
             }`}
           >
             <div
