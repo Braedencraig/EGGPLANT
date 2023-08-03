@@ -271,8 +271,13 @@ h6 {
 } */
 
 .player-wrapper {
-  width: 900px;
-  height: 500px;
+  /* RECENTLY REMOVE */
+  /* width: 900px;
+  height: 500px; */
+  /* RECENTLY REMOVE */
+  max-width: 1500px;
+  width: 75vw;
+  height: 70vh;
   /* position: absolute; */
   /* height: 56%;
   width: 100%;
@@ -298,7 +303,7 @@ h6 {
 .react-player iframe {
   /* width: 70% !important; */
   margin: 0 auto !important;
-  max-width: 960px !important;
+  /* max-width: 960px !important; */
 }
 
 @media (max-width: 960px) {

@@ -152,19 +152,19 @@ export default function Index({
           setActiveVideo={setActiveVideo}
           showModal={showModal}
           allowedCategories={[
-            "Original Music",
             "Music Supervision",
-            "Sound Design",
             "Voice Direction",
+            "Original Music",
+            "Sound Design",
           ]}
           videos={orderedVideos}
           categories={categories}
           options={[
             { value: "All", label: "ALL" },
-            { value: "152HcaQ54UlYeCqSbw9wHm", label: "ORIGINAL MUSIC" },
             { value: "5ES8HaNhDnvVCmnTB6h2gm", label: "MUSIC SUPERVISION" },
-            { value: "g0IDM5gzybmQBH0P6J9xb", label: "SOUND DESIGN" },
             { value: "7dazPdlrSbwu1xCsyZDjiS", label: "VOICE DIRECTION" },
+            { value: "152HcaQ54UlYeCqSbw9wHm", label: "ORIGINAL MUSIC" },
+            { value: "g0IDM5gzybmQBH0P6J9xb", label: "SOUND DESIGN" },
           ]}
         />
         <GetInTouch data={getInTouch} people={people} />

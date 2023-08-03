@@ -73,9 +73,9 @@ function SonicThumbnail({
               <p
                 style={{
                   display: "block",
-                  whiteSpace: "nowrap",
-                  overflow: "hidden",
-                  textOverflow: "ellipsis",
+                  // whiteSpace: "nowrap",
+                  // overflow: "hidden",
+                  // textOverflow: "ellipsis",
                 }}
                 key={index}
                 className="text-white text-lg"
