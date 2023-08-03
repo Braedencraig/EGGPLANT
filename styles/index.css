@@ -298,6 +298,25 @@ h6 {
   }
 }
 
+@media (max-width: 1400px) {
+  .react-player {
+    margin-bottom: -100px;
+  }
+}
+
+@media (max-width: 1100px) {
+  .react-player {
+    margin-bottom: -150px;
+  }
+}
+
+@media (max-width: 768px) {
+  .react-player {
+    margin-bottom: -70px;
+  }
+}
+
+
 
 
 .react-player iframe {
