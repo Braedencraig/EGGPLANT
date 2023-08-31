@@ -28,16 +28,16 @@ function VimeoThumbnail({
         onClick={() => handleClick(url)}
         style={{ height: "100%" }}
       >
-        {thumbnail?.url !== undefined ? (
+        {thumbnail?.fields?.file?.url !== undefined ? (
           <img
             srcSet={`
-        ${thumbnail.url} 640w, 
-        ${thumbnail.url} 640w, 
-        ${thumbnail.url} 200w, 
-        ${thumbnail.url} 100w
+        ${thumbnail?.fields?.file?.url} 640w, 
+        ${thumbnail?.fields?.file?.url} 640w, 
+        ${thumbnail?.fields?.file?.url} 200w, 
+        ${thumbnail?.fields?.file?.url} 100w
     `}
             sizes="(max-width: 640px) 100vw, 640px"
-            src={`${thumbnail.url}`}
+            src={`${thumbnail?.fields?.file?.url}`}
             alt="Vimeo Thumbnail"
             className="w-full h-full object-cover"
           />

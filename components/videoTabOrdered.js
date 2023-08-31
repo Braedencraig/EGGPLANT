@@ -123,6 +123,7 @@ export default function VideoTabOrdered({
                 key={index}
               >
                 <VimeoThumbnail
+                  thumbnail={video?.fields?.thumbnailPhoto}
                   url={video.fields.videoUrl}
                   clientName={video.fields.clientName}
                   projectTitle={video.fields.projectTitle}
