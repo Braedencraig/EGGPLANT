@@ -32,9 +32,11 @@ export default function GetInTouch({ data, people }) {
               })}
             </div>
           </div>
-          <FadeInSection classNames="hidden lg:flex" key={1}>
-            <img src={data[0].image.url} alt="Eggplant Office" />
-          </FadeInSection>
+          {data[0].image && (
+            <FadeInSection classNames="hidden lg:flex" key={1}>
+              <img src={data[0].image.url} alt="Eggplant Office" />
+            </FadeInSection>
+          )}
         </div>
       </Container>
     </div>
