@@ -148,7 +148,7 @@ export default function Index({
             // "Score",
             // "Film",
             // "Theme",
-            "Original Song",
+            "Original Score and Songs",
             "Music Supervision",
           ]}
           videos={orderedVideos}
@@ -159,7 +159,10 @@ export default function Index({
             // { value: "W3sFwJgAwP3bEYV4ykIo8", label: "SCORE" },
             // { value: "1KtDtZFWbsxirzmJzBdcE7", label: "FILM" },
             // { value: "3QJNZPGszWfII2iBeSE7Ny", label: "THEME" },
-            { value: "29RbpcnlGepxn0l3Bg2qVn", label: "ORIGINAL SONG" },
+            {
+              value: "29RbpcnlGepxn0l3Bg2qVn",
+              label: "Original Score and Songs",
+            },
             { value: "16elG76rIZjcF1glbJfiWH", label: "MUSIC SUPERVISION" },
           ]}
         />

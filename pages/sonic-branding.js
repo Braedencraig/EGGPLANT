@@ -29,10 +29,6 @@ export default function Index({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
-  // const sonicBrandingVideos = videos
-  //   .concat(videos2)
-  //   .map((video) => (video.sonicBrandingText !== null ? video : null))
-  //   .filter((el) => el !== null);
 
   const isMobile = () => {
     const ua = navigator.userAgent;
@@ -125,8 +121,6 @@ export default function Index({
       />
     );
   };
-
-  console.log(orderedVideos);
 
   return (
     <>

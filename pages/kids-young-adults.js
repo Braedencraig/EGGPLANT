@@ -1,14 +1,14 @@
-import { useState, useEffect } from "react";
 import GetInTouch from "../components/getInTouch";
+import { useState, useEffect } from "react";
 import Layout from "../components/layout";
-// import VideoTab from "../components/videoTab";
-import VideoTabOrdered from "../components/videoTabOrdered";
 import classNames from "classnames";
 import { createClient } from "contentful";
 
+// import VideoTab from "../components/videoTab";
+import VideoTabOrdered from "../components/videoTabOrdered";
 import {
   getNavigation,
-  getAdvertising,
+  getKidsAndYoungAdults,
   getVideos,
   getMoreVideos,
 } from "../lib/api";
@@ -16,7 +16,7 @@ import Head from "next/head";
 
 export default function Index({
   navigation,
-  advertising,
+  kidsAndYoungAdults,
   footer,
   cities,
   socials,
@@ -29,7 +29,6 @@ export default function Index({
 }) {
   const [showModal, setShowModal] = useState(false);
   const [activeVideo, setActiveVideo] = useState(null);
-
   const isMobile = () => {
     const ua = navigator.userAgent;
     return /Android|Mobi/i.test(ua);
@@ -96,11 +95,11 @@ export default function Index({
         el.addEventListener("mouseover", () => setLinkHovered(true));
         el.addEventListener("mouseout", () => setLinkHovered(false));
       });
+
       document.querySelectorAll("button").forEach((el) => {
         el.addEventListener("mouseover", () => setLinkHovered(true));
         el.addEventListener("mouseout", () => setLinkHovered(false));
       });
-
       document.querySelectorAll(".getintouch").forEach((el) => {
         el.addEventListener("mouseover", () => setBgHovered(true));
         el.addEventListener("mouseout", () => setBgHovered(false));
@@ -126,7 +125,7 @@ export default function Index({
     <>
       <Layout
         alternate={true}
-        heroData={advertising}
+        heroData={kidsAndYoungAdults}
         navigation={navigation}
         footer={footer}
         cities={cities}
@@ -149,20 +148,12 @@ export default function Index({
           setShowModal={setShowModal}
           setActiveVideo={setActiveVideo}
           showModal={showModal}
-          allowedCategories={[
-            "Music Supervision",
-            "Voice Direction",
-            "Original Music",
-            "Sound Design",
-          ]}
+          allowedCategories={["Kids And Young Adults"]}
           videos={orderedVideos}
           categories={categories}
           options={[
             { value: "All", label: "ALL" },
-            { value: "5ES8HaNhDnvVCmnTB6h2gm", label: "MUSIC SUPERVISION" },
-            { value: "7dazPdlrSbwu1xCsyZDjiS", label: "VOICE DIRECTION" },
-            { value: "152HcaQ54UlYeCqSbw9wHm", label: "ORIGINAL MUSIC" },
-            { value: "g0IDM5gzybmQBH0P6J9xb", label: "SOUND DESIGN" },
+            { value: "qittXjYsnTeWZqneK9ayE", label: "Kids And Young Adults" },
           ]}
         />
         <GetInTouch data={getInTouch} people={people} />
@@ -174,8 +165,8 @@ export default function Index({
 
 export async function getStaticProps() {
   const { nav, navItems } = (await getNavigation()) ?? [];
-  const { advertising, footer, cities, socials, getInTouch, people } =
-    (await getAdvertising()) ?? [];
+  const { kidsAndYoungAdults, footer, cities, socials, getInTouch, people } =
+    (await getKidsAndYoungAdults()) ?? [];
   const { videos, categories } = (await getVideos()) ?? [];
   const { videos2, categories2 } = (await getMoreVideos()) ?? [];
 
@@ -187,12 +178,12 @@ export async function getStaticProps() {
   const data = await client.getEntries();
 
   const orderedVideos = data.items.filter(
-    (item) => item.sys.contentType.sys.id === "advertising"
+    (item) => item.sys.contentType.sys.id === "kidsAndYoungAdults"
   );
 
   return {
     props: {
-      advertising,
+      kidsAndYoungAdults,
       footer,
       cities,
       socials,
@@ -200,12 +191,12 @@ export async function getStaticProps() {
       people,
       videos,
       videos2,
+      orderedVideos: orderedVideos[0].fields.videos,
       categories,
       navigation: {
         nav,
         navItems: navItems.reverse(),
       },
-      orderedVideos: orderedVideos[0].fields.videos,
     },
     revalidate: 10,
   };

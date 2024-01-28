@@ -11,7 +11,7 @@ import {
   getMoreVideos,
 } from "../lib/api";
 import About from "../components/about";
-import Awards from "../components/awards";
+// import Awards from "../components/awards";
 import GetInTouch from "../components/getInTouch";
 import Head from "next/head";
 import VimeoThumbnail from "../components/vimeoThumbnail";
@@ -176,7 +176,7 @@ export default function Index({
           </div>
         </Container>
         <About data={about} />
-        <Awards data={awards} />
+        {/* <Awards data={awards} /> */}
         <GetInTouch data={getInTouch} people={people} />
       </Layout>
       {typeof navigator !== "undefined" && isMobile() ? null : <Cursor />}

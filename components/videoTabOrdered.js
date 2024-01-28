@@ -58,7 +58,8 @@ export default function VideoTabOrdered({
               tvFilm && "m-auto max-w-[800px]"
             } categories hidden lg:flex flex-row w-full pb-12 nav`}
           >
-            {allowedCategories[0] === "Video Games" ? null : (
+            {allowedCategories[0] === "Video Games" ||
+            allowedCategories[0] === "Kids And Young Adults" ? null : (
               <div
                 className={`flex justify-around w-full ${
                   reverse ? "flex-row" : "flex-row-reverse"
