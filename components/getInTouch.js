@@ -17,13 +17,10 @@ export default function GetInTouch({ data, people }) {
                 </h3>
               </FadeInSection>
             </div>
-            <div className="flex w-full flex-wrap gap-x-8">
+            <div className="flex w-full lg:flex-row flex-col">
               {people.map((person, i) => {
                 return (
-                  <FadeInSection
-                    classNames="text-center md:text-left w-full md:w-[33%] mt-6"
-                    key={i}
-                  >
+                  <FadeInSection classNames="text-left mt-6 lg:mr-12" key={i}>
                     <h3 style={{ lineHeight: "28px" }} className="font-bold">
                       {person.name.toUpperCase()}
                     </h3>
