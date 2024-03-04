@@ -30,9 +30,6 @@ export default function GetInTouch({ data, people }) {
                       <p
                         style={{
                           letterSpacing: "initial",
-                          lineHeight: "14px",
-                          fontSize: "12px",
-                          marginTop: "8px",
                         }}
                       >
                         {person.extraText}
