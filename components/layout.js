@@ -126,7 +126,9 @@ export default function Layout({
             src={heroData[0].backgroundVideo.url}
             autoPlay
             loop
+            controls={false}
             muted
+            playsInline
             style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
           />
           <Navigation data={navigation} />

@@ -12,11 +12,11 @@ export default function Navigation({ data: { nav, navItems } }) {
   return (
     <div className="absolute top-0 left-0 right-0">
       <Container>
-        <nav className="items-start justify-between flex-wrap py-6 hidden md:flex">
+        <nav className="items-start justify-center xl:justify-between flex-wrap py-6 hidden md:flex">
           <div>
             <Link
               href="/"
-              className="flex items-center flex-shrink-0 text-white mr-6 svgfun"
+              className="flex items-center flex-shrink-0 text-white mr-6 svgfun xl:mb-0 mb-4"
             >
               <Logo />
               {/* <img src={nav[0].logo.url} alt="Eggplant" /> */}
