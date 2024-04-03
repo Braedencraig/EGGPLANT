@@ -127,6 +127,7 @@ export default function Layout({
             autoPlay
             loop
             muted
+            playsInline
             style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
           />
           <Navigation data={navigation} />
