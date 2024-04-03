@@ -32,7 +32,7 @@ export default function Layout({
           <div
             className={`bg-black flex justify-center pt-[80px] ${
               sonicBranding &&
-              "h-[850px] md:h-[1200px] mb-[100px] sm:mb-[200px] lg:mb-[300px]"
+              "h-[850px] md:h-[1200px] mb-[100px] sm:mb-[200px] lg:mb-[400px]"
             }`}
           >
             <div
@@ -119,17 +119,19 @@ export default function Layout({
       <Meta />
       <div className="min-h-screen">
         <div className={`${tiny ? "h-[520px]" : ""} relative`}>
-          <video
-            className={`h-full w-full object-cover ${
-              tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
-            }`}
-            src={heroData[0].backgroundVideo.url}
-            autoPlay
-            loop
-            muted
-            playsInline
-            style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
-          />
+          {!sonicBranding && (
+            <video
+              className={`h-full w-full object-cover ${
+                tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
+              }`}
+              src={heroData[0].backgroundVideo.url}
+              autoPlay
+              loop
+              muted
+              playsInline
+              style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
+            />
+          )}
           <Navigation data={navigation} />
           <div
             className={`absolute ${alternate ? "text-left" : "text-center"} ${
@@ -138,19 +140,19 @@ export default function Layout({
                 : "top-1/2"
             }  ${
               alternate
-                ? "md:text-left left-0 right-0 text-center container2 mx-auto px-[16px] md:px-[45px] md:block flex flex-col items-center"
+                ? "md:text-left left-0 right-0 text-center md:container2 mx-0 md:mx-auto px-[16px] md:px-[45px] md:block flex flex-col items-center"
                 : "left-1/2 transform -translate-x-1/2 -translate-y-1/2"
             } w-full ${
               home
-                ? "max-w-[300px] md:max-w-[634px]"
-                : "max-w-[300px] md:max-w-[480px]"
+                ? "max-w-[400px] md:max-w-[634px]"
+                : "max-w-[400px] md:max-w-[480px]"
             }`}
           >
             <h1
               className={`  ${
                 home
-                  ? "max-w-[300px] md:max-w-[634px] leading-[1.25]"
-                  : "max-w-[300px] md:max-w-[480px]"
+                  ? "max-w-[400px] md:max-w-[634px] leading-[1.25]"
+                  : "max-w-[400px] md:max-w-[480px]"
               } ${
                 alternate ? "text-accent-1 " : "text-white"
               } text-4xl md:text-6xl font-bold mb-10`}
@@ -160,8 +162,8 @@ export default function Layout({
             <div
               className={`text-md md:text-md text-white   ${
                 home
-                  ? "max-w-[300px] md:max-w-[634px]"
-                  : "max-w-[300px] md:max-w-[480px]"
+                  ? "max-w-[400px] md:max-w-[634px]"
+                  : "max-w-[400px] md:max-w-[480px]"
               } ${
                 heroData[0].title === "Video Games" ? "md:max-w-[600px]" : ""
               }`}
