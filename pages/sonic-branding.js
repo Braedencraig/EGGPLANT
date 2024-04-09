@@ -32,7 +32,19 @@ export default function Index({
 
   const isMobile = () => {
     const ua = navigator.userAgent;
-    return /Android|Mobi/i.test(ua);
+    const mobileKeywords =
+      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
+    const isMobileDevice = mobileKeywords.test(ua);
+
+    // Additional feature detection
+    const isTouchDevice =
+      "ontouchstart" in window ||
+      navigator.maxTouchPoints > 0 ||
+      navigator.msMaxTouchPoints > 0;
+    const screenWidth = window.screen.width;
+    const isSmallScreen = screenWidth < 768; // Example threshold for small screens
+
+    return isMobileDevice || (isTouchDevice && isSmallScreen);
   };
 
   const Cursor = () => {
