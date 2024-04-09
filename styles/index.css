@@ -52,6 +52,12 @@ section {
   mix-blend-mode: hard-light;
 }
 
+@media (max-width: 768px) {
+  .cursor {
+    display: none;
+  }
+}
+
 .doit {
   -webkit-animation: fadein 2s; /* Safari, Chrome and Opera > 12.1 */
   -moz-animation: fadein 2s; /* Firefox < 16 */
@@ -294,7 +300,7 @@ h6 {
 
 @media (max-width: 1920px) {
   .video-tab {
-   width: 33% !important;
+    width: 33% !important;
   }
 }
 
@@ -315,9 +321,6 @@ h6 {
     margin-bottom: -70px;
   }
 }
-
-
-
 
 .react-player iframe {
   /* width: 70% !important; */
@@ -346,7 +349,6 @@ h6 {
     width: 100% !important;
   }
 }
-
 
 @media (max-width: 650px) {
   /* .video-tab {

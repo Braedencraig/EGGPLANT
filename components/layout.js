@@ -124,13 +124,17 @@ export default function Layout({
               className={`h-full w-full object-cover ${
                 tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
               }`}
-              src={heroData[0].backgroundVideo.url}
+              // src={heroData[0].backgroundVideo.url}
               autoPlay
               loop
               muted
               playsInline
+              webkit-playsinline
+              playsineline
               style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
-            />
+            >
+              <source src={heroData[0].backgroundVideo.url} />
+            </video>
           )}
           <Navigation data={navigation} />
           <div
