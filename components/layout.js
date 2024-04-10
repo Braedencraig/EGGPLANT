@@ -121,32 +121,33 @@ export default function Layout({
       <div className="min-h-screen">
         <div className={`${tiny ? "h-[520px]" : ""} relative`}>
           {!sonicBranding && (
-            <VideoComponent
+            // <VideoComponent
+            //   className={`h-full w-full object-cover ${
+            //     tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
+            //   }`}
+            //   style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
+            //   src={heroData[0].backgroundVideo.url}
+            // />
+            <video
               className={`h-full w-full object-cover ${
                 tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
               }`}
+              // autoPlay="autoplay"
+              // // playsInLine="playsinline"
+              // playsInline="true"
+              // loop="true"
+              // muted="true"
               src={heroData[0].backgroundVideo.url}
-            />
-            // <video
-            // className={`h-full w-full object-cover ${
-            //   tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
-            // }`}
-            //   autoPlay="autoplay"
-            //   // playsInLine="playsinline"
-            //   playsInline="true"
-            //   loop="true"
-            //   muted="true"
-            //   // src={heroData[0].backgroundVideo.url}
-            //   // autoPlay
-            //   // loop
-            //   // muted
-            //   // playsInline
-            //   // webkit-playsinline
-            //   // playsinline
-            //   style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
-            // >
-            //   <source src={heroData[0].backgroundVideo.url} />
-            // </video>
+              autoPlay
+              loop
+              muted
+              playsInline
+              // webkit-playsinline
+              // playsinline
+              style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
+            >
+              <source src={heroData[0].backgroundVideo.url} />
+            </video>
           )}
           <Navigation data={navigation} />
           <div
