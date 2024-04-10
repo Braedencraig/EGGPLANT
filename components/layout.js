@@ -125,7 +125,8 @@ export default function Layout({
                 tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
               }`}
               autoPlay="autoplay"
-              playsInLine="playsinline"
+              // playsInLine="playsinline"
+              playsInline="true"
               loop="true"
               muted="true"
               // src={heroData[0].backgroundVideo.url}
