@@ -124,11 +124,15 @@ export default function Layout({
               className={`h-full w-full object-cover ${
                 tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
               }`}
+              autoPlay="autoplay"
+              playsInLine="playsinline"
+              loop="true"
+              muted="true"
               // src={heroData[0].backgroundVideo.url}
-              autoPlay
-              loop
-              muted
-              playsInline
+              // autoPlay
+              // loop
+              // muted
+              // playsInline
               // webkit-playsinline
               // playsinline
               style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
