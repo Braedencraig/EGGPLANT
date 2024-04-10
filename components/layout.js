@@ -4,6 +4,7 @@ import GetInTouch from "../components/getInTouch";
 import Meta from "../components/meta";
 import ReactPlayer from "react-player";
 import close from "../public/closemodal.png";
+import VideoComponent from "./video";
 
 export default function Layout({
   navigation,
@@ -120,26 +121,32 @@ export default function Layout({
       <div className="min-h-screen">
         <div className={`${tiny ? "h-[520px]" : ""} relative`}>
           {!sonicBranding && (
-            <video
+            <VideoComponent
               className={`h-full w-full object-cover ${
                 tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
               }`}
-              autoPlay="autoplay"
-              // playsInLine="playsinline"
-              playsInline="true"
-              loop="true"
-              muted="true"
-              // src={heroData[0].backgroundVideo.url}
-              // autoPlay
-              // loop
-              // muted
-              // playsInline
-              // webkit-playsinline
-              // playsinline
-              style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
-            >
-              <source src={heroData[0].backgroundVideo.url} />
-            </video>
+              src={heroData[0].backgroundVideo.url}
+            />
+            // <video
+            // className={`h-full w-full object-cover ${
+            //   tiny ? "min-h-[520px]" : "min-h-[609px] !h-[50vh]"
+            // }`}
+            //   autoPlay="autoplay"
+            //   // playsInLine="playsinline"
+            //   playsInline="true"
+            //   loop="true"
+            //   muted="true"
+            //   // src={heroData[0].backgroundVideo.url}
+            //   // autoPlay
+            //   // loop
+            //   // muted
+            //   // playsInline
+            //   // webkit-playsinline
+            //   // playsinline
+            //   style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
+            // >
+            //   <source src={heroData[0].backgroundVideo.url} />
+            // </video>
           )}
           <Navigation data={navigation} />
           <div
