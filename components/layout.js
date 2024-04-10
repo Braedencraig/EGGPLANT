@@ -129,8 +129,8 @@ export default function Layout({
               loop
               muted
               playsInline
-              webkit-playsinline
-              playsineline
+              // webkit-playsinline
+              // playsinline
               style={{ filter: "opacity(0.5)", filter: "brightness(0.3)" }}
             >
               <source src={heroData[0].backgroundVideo.url} />
