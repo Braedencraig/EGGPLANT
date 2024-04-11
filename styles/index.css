@@ -54,7 +54,7 @@ section {
 
 @media (max-width: 768px) {
   .cursor {
-    display: none;
+    opacity: 0 !important;
   }
 }
 

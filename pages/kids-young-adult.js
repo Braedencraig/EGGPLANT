@@ -31,15 +31,9 @@ export default function Index({
   const [activeVideo, setActiveVideo] = useState(null);
   const isMobile = () => {
     const ua = navigator.userAgent;
-    const mobileKeywords =
-      /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i;
-    const isMobileDevice = mobileKeywords.test(ua);
-
-    const screenWidth = window.screen.width;
-    const isSmallScreen = screenWidth < 768; // Example threshold for small screens
-
-    return isMobileDevice || isSmallScreen;
+    return /Android|Mobi/i.test(ua);
   };
+
   const Cursor = () => {
     if (typeof navigator !== "undefined" && isMobile()) return null;
 
