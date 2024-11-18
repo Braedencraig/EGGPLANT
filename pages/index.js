@@ -154,14 +154,11 @@ export default function Index({
               .filter((video) => video.categoryCollection.items.length === 0)
               .filter((video) => video.videoUrl)
               .map((video, index) => {
+                console.log(video);
                 return (
-                  // <FadeInSection
-                  // classNames="w-[100%] sm:w-[50%] lg:w-[33%]"
-                  // key={index}
-                  // >
                   <div className="w-[100%] sm:w-[50%] lg:w-[33%]" key={index}>
                     <VimeoThumbnail
-                      thumbnail={video.thumbnailPhoto}
+                      thumbnail={video.thumbnailPhoto?.url}
                       url={video.videoUrl}
                       clientName={video.clientName}
                       projectTitle={video.projectTitle}
@@ -170,7 +167,6 @@ export default function Index({
                       showModal={showModal}
                     />
                   </div>
-                  // </FadeInSection>
                 );
               })}
           </div>
