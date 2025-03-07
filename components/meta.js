@@ -37,7 +37,7 @@ export default function Meta() {
       <meta name="viewport" content="width=device-width, initial-scale=1" />
       <meta
         name="keywords"
-        content="Eggplant, Eggplant Studio, Eggplant Music, Eggplant Sound, Eggplant Music & Sound, Eggplant Music and Sound, Eggplant Original Music, Eggplant Music Supervision, Eggplant Music Licensing, Eggplant Sound Design, Eggplant Voice Direction, The Eggplant, Eggplant Music + Sound Audio House, Audio, Music, Sound, Sound effects, Commercial Audio, Film Audio, Video Game Audio, Custom Composition, Sound design, audio mixing, dolby 5.1, voice direction, voice casting, music consultation, licensing, independent musician, Composer, foley, music for media, craft, SFX, editing, audio post, Toronto, advertising, creative audio, radio commercials, spotify commercials, cinema, cinema mix sonic branding audio sting audio mnemonic"
+        content="Eggplant, Eggplant Toronto, Eggplant Studio Toronto, Eggplant Studio, Eggplant Recording Studio, Eggplant Music Toronto, Eggplant Music, Eggplant Sound, Eggplant Music & Sound, Eggplant Music and Sound, The Eggplant"
       />
       <meta
         name="description"
